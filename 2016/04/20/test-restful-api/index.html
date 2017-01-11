@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="directories123456restify  ├─ /models  │     └─ memo.model.js  ├─ /tests  │     └─ memo.test.js  └─ app.js
+예제로 사용한 파일들은 https://github.com/kishu/restif">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="kishu">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="RESTful API 테스트 하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="kishu.github.io"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>RESTful API 테스트 하기 - kishu.github.io</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>RESTful API 테스트 하기</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-04-20
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="directories"><a href="#directories" class="headerlink" title="directories"></a>directories</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">restify</div><div class="line">  ├─ /models</div><div class="line">  │     └─ memo.model.js</div><div class="line">  ├─ /tests</div><div class="line">  │     └─ memo.test.js</div><div class="line">  └─ app.js</div></pre></td></tr></table></figure>
+<p><em>예제로 사용한 파일들은 <a href="https://github.com/kishu/restify-sample" target="_blank" rel="external">https://github.com/kishu/restify-sample</a> 에서 확인 할 수 있습니다.</em></p>
+<h3 id="node-modules-설치"><a href="#node-modules-설치" class="headerlink" title="node modules 설치"></a>node modules 설치</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install mocha -g</div><div class="line">npm chai chai-http</div></pre></td></tr></table></figure>
+<h3 id="tests-memo-test-js"><a href="#tests-memo-test-js" class="headerlink" title="tests/memo.test.js"></a>tests/memo.test.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">const</span> chai = <span class="built_in">require</span>(<span class="string">"chai"</span>);</div><div class="line"><span class="keyword">const</span> chaiHttp = <span class="built_in">require</span>(<span class="string">"chai-http"</span>);</div><div class="line"><span class="keyword">const</span> expect = chai.expect;</div><div class="line"></div><div class="line">chai.use(chaiHttp);</div><div class="line"></div><div class="line">describe(<span class="string">"memos"</span>, () =&gt; &#123;</div><div class="line">	<span class="keyword">let</span> memo;</div><div class="line">	describe(<span class="string">"post"</span>, () =&gt; &#123;</div><div class="line">		it(<span class="string">"should created"</span>, done =&gt; &#123;</div><div class="line">			chai</div><div class="line">				.request(<span class="string">"localhost:8080"</span>)</div><div class="line">				.post(<span class="string">"/api/v1/memos"</span>)</div><div class="line">				.send(&#123;<span class="attr">user</span>: <span class="string">"brown"</span>, <span class="attr">contents</span>: <span class="string">"test memo"</span>&#125;)</div><div class="line">				.end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">					expect(err).to.be.null;</div><div class="line">					expect(res).to.have.status(<span class="number">201</span>);</div><div class="line">					memo = res.body;</div><div class="line">					done();</div><div class="line">				&#125;);</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><em>see more</em></p>
+<ul>
+<li><em><a href="https://mochajs.org/" target="_blank" rel="external">https://mochajs.org/</a></em></li>
+<li><em><a href="http://chaijs.com/" target="_blank" rel="external">http://chaijs.com/</a></em></li>
+<li><em><a href="https://github.com/chaijs/chai-http" target="_blank" rel="external">https://github.com/chaijs/chai-http</a></em></li>
+</ul>
+<h3 id="run-test"><a href="#run-test" class="headerlink" title="run test"></a>run test</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mocha tests/</span></div></pre></td></tr></table></figure>
+<p><img src="/images/fwao.png" alt="fwao.png"></p>
+<h3 id="test-GET"><a href="#test-GET" class="headerlink" title="test GET"></a>test GET</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">"GET"</span>, () =&gt; &#123;</div><div class="line">	it(<span class="string">"should fetched"</span>, done =&gt; &#123;</div><div class="line">		chai</div><div class="line">			.request(<span class="string">"localhost:8080"</span>)</div><div class="line">			.get(<span class="string">`/api/v1/memos/<span class="subst">$&#123;memo._id&#125;</span>`</span>)</div><div class="line">			.end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">				expect(err).to.be.null;</div><div class="line">				expect(res).to.have.status(<span class="number">200</span>);</div><div class="line">				done();</div><div class="line">			&#125;);</div><div class="line">	&#125;);</div><div class="line">	it(<span class="string">"should fetched all"</span>, done =&gt; &#123;</div><div class="line">		chai</div><div class="line">			.request(<span class="string">"localhost:8080"</span>)</div><div class="line">			.get(<span class="string">"/api/v1/memos"</span>)</div><div class="line">			.end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">				expect(err).to.be.null;</div><div class="line">				expect(res).to.have.status(<span class="number">200</span>);</div><div class="line">				expect(res.body).to.be.an(<span class="string">"array"</span>);</div><div class="line">				done();</div><div class="line">			&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="test-PATCH"><a href="#test-PATCH" class="headerlink" title="test PATCH"></a>test PATCH</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">"PATCH"</span>, () =&gt; &#123;</div><div class="line">	it(<span class="string">"should updated"</span>, done =&gt; &#123;</div><div class="line">		chai</div><div class="line">			.request(<span class="string">"localhost:8080"</span>)</div><div class="line">			.patch(<span class="string">`/api/v1/memos/<span class="subst">$&#123;memo._id&#125;</span>`</span>)</div><div class="line">			.send(&#123;<span class="attr">user</span>: <span class="string">"choco"</span>, <span class="attr">contents</span>: <span class="string">"updated memo"</span>&#125;)</div><div class="line">			.end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">				expect(err).to.be.null;</div><div class="line">				expect(res).to.have.status(<span class="number">200</span>);</div><div class="line">				done();</div><div class="line">			&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="test-DELETE"><a href="#test-DELETE" class="headerlink" title="test DELETE"></a>test DELETE</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">"DELETE"</span>, () =&gt; &#123;</div><div class="line">	it(<span class="string">"should deleted"</span>, done =&gt; &#123;</div><div class="line">		chai</div><div class="line">			.request(<span class="string">"localhost:8080"</span>)</div><div class="line">			.delete(<span class="string">`/api/v1/memos/<span class="subst">$&#123;memo._id&#125;</span>`</span>)</div><div class="line">			.end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">				expect(err).to.be.null;</div><div class="line">				expect(res).to.have.status(<span class="number">204</span>);</div><div class="line">				done();</div><div class="line">			&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><img src="/images/rewriug.png" alt="rewriug.png"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/groups/webfrontend/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/kishu" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 kishu<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

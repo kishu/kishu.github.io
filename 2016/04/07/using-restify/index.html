@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="requiredMongoDB와 Node.js를 설치해야 합니다.
+
+mongodb https://www.mongodb.org/
+nodejs https://nodejs.org/
+
+OSX에서는 Homebrew를 사용하면 쉽게 설치 할 수 있습니다.
+directories123">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="kishu">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="restify를 이용해 쉽고 빠르게 RESTful API 서버 만들기"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="kishu.github.io"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>restify를 이용해 쉽고 빠르게 RESTful API 서버 만들기 - kishu.github.io</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>restify를 이용해 쉽고 빠르게 RESTful API 서버 만들기</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-04-07
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="required"><a href="#required" class="headerlink" title="required"></a>required</h3><p>MongoDB와 Node.js를 설치해야 합니다.</p>
+<ul>
+<li>mongodb <a href="https://www.mongodb.org/" target="_blank" rel="external">https://www.mongodb.org/</a></li>
+<li>nodejs <a href="https://nodejs.org/" target="_blank" rel="external">https://nodejs.org/</a></li>
+</ul>
+<p><em>OSX에서는 <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a>를 사용하면 쉽게 설치 할 수 있습니다.</em></p>
+<h3 id="directories"><a href="#directories" class="headerlink" title="directories"></a>directories</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">restify </div><div class="line">  ├─ /models</div><div class="line">  │     └─ memo.model.js</div><div class="line">  └─ app.js</div><div class="line">``` </div><div class="line"></div><div class="line">*예제로 사용한 파일들은 https://github.com/kishu/restify-sample 에서 확인 할 수 있습니다.*</div><div class="line"></div><div class="line"><span class="comment">### node modules 설치</span></div><div class="line"></div><div class="line">```bash</div><div class="line">npm install express-restify-mongoose mongoose restify</div></pre></td></tr></table></figure>
+<h3 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">const</span> erm = <span class="built_in">require</span>(<span class="string">"express-restify-mongoose"</span>);</div><div class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</div><div class="line"><span class="keyword">const</span> restify = <span class="built_in">require</span>(<span class="string">"restify"</span>);</div><div class="line"></div><div class="line">mongoose.connect(<span class="string">"mongodb://localhost/memo"</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> server = restify.createServer();</div><div class="line">server.use(restify.bodyParser());</div><div class="line"></div><div class="line">server.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'%s listening at %s'</span>, server.name, server.url);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><em>see more <a href="http://restify.com/" target="_blank" rel="external">http://restify.com/</a></em></p>
+<h3 id="models-memo-model-js"><a href="#models-memo-model-js" class="headerlink" title="models/memo.model.js"></a>models/memo.model.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> schema = <span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line">	<span class="attr">user</span>: <span class="built_in">String</span>,</div><div class="line">	<span class="attr">contents</span>: <span class="built_in">String</span>,</div><div class="line">	<span class="attr">created</span>: &#123;<span class="attr">type</span>: <span class="built_in">Date</span>, <span class="attr">default</span>: <span class="built_in">Date</span>.now&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">"Memo"</span>, schema);</div></pre></td></tr></table></figure>
+<p><em>see more <a href="http://mongoosejs.com/" target="_blank" rel="external">http://mongoosejs.com/</a></em></p>
+<h3 id="app-js-again-It’s-SHOWTIME"><a href="#app-js-again-It’s-SHOWTIME" class="headerlink" title="app.js again It’s SHOWTIME!!!"></a>app.js again It’s SHOWTIME!!!</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">const restify = <span class="built_in">require</span>(<span class="string">"restify"</span>);</div><div class="line"><span class="keyword">const</span> memoModel = <span class="built_in">require</span>(<span class="string">"./models/memo.model"</span>);</div><div class="line"></div><div class="line">...</div><div class="line">server.use(restify.bodyParser());</div><div class="line">erm.defaults(&#123;<span class="attr">restify</span>: <span class="literal">true</span>&#125;);</div><div class="line">erm.serve(server, memoModel, &#123;<span class="attr">name</span>: <span class="string">"memos"</span>&#125;);</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><em>see more <a href="https://florianholzapfel.github.io/express-restify-mongoose" target="_blank" rel="external">https://florianholzapfel.github.io/express-restify-mongoose</a></em></p>
+<h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node app</div></pre></td></tr></table></figure>
+<h3 id="test"><a href="#test" class="headerlink" title="test"></a>test</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ curl -i -X POST -H <span class="string">"Content-Type:application/json"</span> http://localhost:8080/api/v1/memos <span class="_">-d</span> <span class="string">'&#123;"contents":"restify로 REST API 서버 만들기"&#125;'</span></div><div class="line"></div><div class="line">HTTP/1.1 201 Created</div><div class="line">Content-Type: application/json</div><div class="line">Content-Length: 129</div><div class="line">Date: Thu, 07 Apr 2016 02:36:01 GMT</div><div class="line">Connection: keep-alive</div><div class="line"></div><div class="line">&#123;<span class="string">"__v"</span>:0,<span class="string">"contents"</span>:<span class="string">"restify로 REST API 서버 만들기"</span>,<span class="string">"_id"</span>:<span class="string">"5705c7918b5b12bf9f0b0f0f"</span>,<span class="string">"created"</span>:<span class="string">"2016-04-07T02:36:01.391Z"</span>&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ curl http://localhost:8080/api/v1/memos</div><div class="line"></div><div class="line">[&#123;<span class="string">"_id"</span>:<span class="string">"5705c7918b5b12bf9f0b0f0f"</span>,<span class="string">"contents"</span>:<span class="string">"restify로 REST API 서버 만들기"</span>,<span class="string">"created"</span>:<span class="string">"2016-04-07T02:36:01.391Z"</span>,<span class="string">"__v"</span>:0&#125;]</div></pre></td></tr></table></figure>
+<h3 id="and-MORE"><a href="#and-MORE" class="headerlink" title="and MORE"></a>and MORE</h3><ul>
+<li>GET /api/v1/memos/count</li>
+<li>GET /api/v1/memos</li>
+<li>POST /api/v1/memos</li>
+<li>DELETE /api/v1/memos</li>
+<li>GET /api/v1/memos/:id</li>
+<li>GET /api/v1/memos/:id/shallow</li>
+<li>PUT /api/v1/memos/:id</li>
+<li>POST /api/v1/memos/:id</li>
+<li>PATCH /api/v1/memos/:id</li>
+<li>DELETE /api/v1/memos/:id</li>
+<li>GET /api/v1/memos?sort={“created”: -1}</li>
+<li>GET /api/v1/memos?skip=10</li>
+<li>GET /api/v1/memos?limit=10</li>
+<li>GET /api/v1/memos?query={“contents”: {“$regex”: “^(Restify)”}}</li>
+<li>GET /api/v1/memos?select=contents</li>
+</ul>
+<p><em>see more <a href="https://florianholzapfel.github.io/express-restify-mongoose/#querying" target="_blank" rel="external">https://florianholzapfel.github.io/express-restify-mongoose/#querying</a></em></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/groups/webfrontend/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/kishu" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 kishu<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
