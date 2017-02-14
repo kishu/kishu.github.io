@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="웹팩으로 번들링한 모듈은 ES2015의 import , CommonJS의 require() 또는 AMD의 define/require 방식으로 로드할 수 있다. HTML에서 &amp;lt;script&amp;gt;로 로드하려면 webpack.config.js의 output.librar">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="kishu">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="웹팩 모듈을 라이브러리로 만들기"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="kishu.github.io"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>웹팩 모듈을 라이브러리로 만들기 - kishu.github.io</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>웹팩 모듈을 라이브러리로 만들기</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-02-14
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>웹팩으로 번들링한 모듈은 ES2015의 <code>import</code> , CommonJS의 <code>require()</code> 또는 AMD의 <code>define/require</code> 방식으로 로드할 수 있다. HTML에서 <code>&lt;script&gt;</code>로 로드하려면 <code>webpack.config.js</code>의 <a href="https://webpack.js.org/configuration/output/#output-library" target="_blank" rel="external"><code>output.library</code></a>와 <a href="https://webpack.js.org/configuration/output/#output-library" target="_blank" rel="external"><code>output.libraryTarget</code></a>을 설정하면 된다. 이 옵션은 라이브러리 이름과 로드 방식을 설정하는 옵션이다. 이 옵션을 통해 모듈을 라이브러리로 만들 수 있다.</p>
+<p>특히, <code>output.libraryTarget</code>을 <strong><code>umd</code></strong>로 설정하면 모듈은 <code>&lt;script&gt;</code> 로드 뿐만 아니라 모든 방식의 로더에서 사용할 수 있다. 웹팩 내부 코드를 살펴 보자.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//webpack.config.js</span></div><div class="line">..</div><div class="line">output: &#123;</div><div class="line">  <span class="attr">library</span>: <span class="string">"mymodule"</span>,</div><div class="line">  <span class="attr">libraryTarget</span>: <span class="string">"umd"</span></div><div class="line">&#125;</div><div class="line">..</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// dist/mymodule.js</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">webpackUniversalModuleDefinition</span>(<span class="params">root, factory</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> exports === <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">module</span> === <span class="string">'object'</span>)</div><div class="line">    <span class="built_in">module</span>.exports = factory();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd)</div><div class="line">    define(<span class="string">"mymodule"</span>, [], factory);</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> exports === <span class="string">'object'</span>)</div><div class="line">    exports[<span class="string">"mymodule"</span>] = factory();</div><div class="line">  <span class="keyword">else</span></div><div class="line">    root[<span class="string">"mymodule"</span>] = factory();</div><div class="line">&#125;)(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//what this module returns is what your entry chunk returns</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>webpackUniversalModuleDefinition()</code> , <code>factory()</code>는 모듈을 리턴하는 웹팩 내부 함수다. <code>root</code> 즉, <code>this</code> (실행 컨텍스트)에 라이브러리 이름을 프로퍼티로 추가하고 실제 모듈을 넣는 코드를 볼 수 있다. 이제 HTML에서 <code>&lt;script&gt;</code>로 <code>mymodule</code>을 로드할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">..</div><div class="line">&lt;script src=&quot;../dist/mymodule.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  // you can use mymodule</div><div class="line">&lt;/script&gt;</div><div class="line">..</div></pre></td></tr></table></figure>
+<p>이렇게 만든 여러 라이브러리를 하나의 네임스페이스로 묶을 수도 있다. <code>output.library</code>에 라이브러리 이름을 네임스페이스와 함께 배열 요소로 지정해 주면 된다. <code>mymodule</code> 라이브러리를 <code>myns</code> 네임스페이스에 넣고 싶다면 아래와 같이 한다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line">..</div><div class="line">output: &#123;</div><div class="line">  <span class="attr">library</span>: [<span class="string">"myns"</span>, <span class="string">"mymodule"</span>],</div><div class="line">  <span class="attr">libraryTarget</span>: <span class="string">"umd"</span></div><div class="line">&#125;</div><div class="line">..</div></pre></td></tr></table></figure>
+<p>웹팩 변환 코드는 다음과 같다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// dist/mymodule.js</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">webpackUniversalModuleDefinition</span>(<span class="params">root, factory</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> exports === <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">module</span> === <span class="string">'object'</span>)</div><div class="line">    <span class="built_in">module</span>.exports = factory();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd)</div><div class="line">    define(<span class="string">"mymodule"</span>, [], factory);</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> exports === <span class="string">'object'</span>)</div><div class="line">    exports[<span class="string">"mymodule"</span>] = factory();</div><div class="line">  <span class="keyword">else</span></div><div class="line">    root[<span class="string">"myns"</span>] = root[<span class="string">"myns"</span>] || &#123;&#125;, root[<span class="string">"myns"</span>][<span class="string">"mymodule"</span>] = factory(); <span class="comment">// myns가 추가됐다.</span></div><div class="line">&#125;)(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//what this module returns is what your entry chunk returns</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>실행 컨텍스트에 <code>myns</code> 네임스페이스가 추가됐다. 이제 <code>mymodule</code>를 사용하기 위해서는 <code>myns.mymodule</code>로 접근해야 한다.</p>
+<p>웹팩을 기반으로 하는 각각 독립적인 컴포넌트가 하나의 네임스페이스로 묶여야 한다면 이 방식이 효율적이다. 여러 컴포넌트가 각각 다른 리파지토리에 있으며 서로 독립적인 컴포넌트라 가정하자. 이 컴포넌트들을 하나의 네임스페이스로 묶는다면 각각 독립적으로 관리하면서 하나의 네임스페이스로 묶어 배포 할 수 있는 장점을 얻을 수 있다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/groups/webfrontend/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/kishu" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 kishu<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
