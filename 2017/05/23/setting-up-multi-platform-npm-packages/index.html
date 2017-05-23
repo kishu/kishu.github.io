@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="여러 플랫폼을 위한 npm 패키지 설정원문: http://2ality.com/2017/04/setting-up-multi-platform-packages.html
+이 글은 npm 패키지를 여러 플랫폼에 사용하는 방법을 설명한다. 시작하기 전 자바스크립트의 모듈 형식을 ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="kishu">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="여러 플랫폼을 위한 npm 패키지 설정"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="kishu.github.io"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>여러 플랫폼을 위한 npm 패키지 설정 - kishu.github.io</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>여러 플랫폼을 위한 npm 패키지 설정</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-05-23
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="여러-플랫폼을-위한-npm-패키지-설정"><a href="#여러-플랫폼을-위한-npm-패키지-설정" class="headerlink" title="여러 플랫폼을 위한 npm 패키지 설정"></a>여러 플랫폼을 위한 npm 패키지 설정</h1><p>원문: <a href="http://2ality.com/2017/04/setting-up-multi-platform-packages.html" target="_blank" rel="external">http://2ality.com/2017/04/setting-up-multi-platform-packages.html</a></p>
+<p>이 글은 npm 패키지를 여러 플랫폼에 사용하는 방법을 설명한다. 시작하기 전 자바스크립트의 모듈 형식을 간단히 알아보자.</p>
+<h2 id="1-개요"><a href="#1-개요" class="headerlink" title="1. 개요"></a>1. 개요</h2><p>다음 표는 <code>package.json</code>에서 소스 코드 진입점을 가리키는 속성들이다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">main</th>
+<th style="text-align:center">browser</th>
+<th style="text-align:center">module</th>
+<th style="text-align:center">es2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>ES Version</strong></td>
+<td style="text-align:center">ES5+</td>
+<td style="text-align:center">ES5+</td>
+<td style="text-align:center">ES5+</td>
+<td style="text-align:center">ES6</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Module Format</strong></td>
+<td style="text-align:center">CJS</td>
+<td style="text-align:center">CJS</td>
+<td style="text-align:center">ESM</td>
+<td style="text-align:center">ESM</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>webpack</strong></td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Rollup</strong></td>
+<td style="text-align:center">(✔)</td>
+<td style="text-align:center">(✔)</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>jspm</strong></td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>역자주: <code>package.json</code>에서 소스 진입점을 가리키는 속성은 <code>main</code>, <code>browser</code>, <code>module</code>, <code>es2015</code>  등이 있다. 위 표는 각 속성을 사용하기 위해 필요한 ES 버전과 모듈 형식을 알려준다.  또한 주요 번들링 도구에서 해당 속성을 사용할 수 있는지 알려준다. (✔)는 플러그인을 통해 사용 가능하다는 의미다.</p>
+</blockquote>
+<h2 id="2-배경지식-자바스크립트-모듈-형식"><a href="#2-배경지식-자바스크립트-모듈-형식" class="headerlink" title="2. 배경지식: 자바스크립트 모듈 형식"></a>2. 배경지식: 자바스크립트 모듈 형식</h2><p>현재 일반적인 자바스크립트 모듈 형식은 다음과 같다.</p>
+<ul>
+<li>AMD(Asynchronous Module Definition): 브라우저용 비동기 모듈 형식</li>
+<li>CJS(Common JavaScript): Node.js 같은 서버용으로 설계한 동기식 모듈 형식. Node.js와 npm의 인기로 인해 CJS는 브라우저에서 가장 널리 사용하는 형식이다. 하지만 비동기 코드로 컴파일해야 하며, 이를 위해 webpack이나 browserify 등의 도구를 사용한다.</li>
+<li>ESM(ECMAScript modules): ES6는 모듈을 내장했다. ESM은 동기식과 비동기식에서 모두 사용 가능하게 설계했다. 최근 브라우저에서도 이를 지원하기 시작했다. Node.js도 2018년 초(빠르면 그 전이라도)에 지원할 예정이다.</li>
+</ul>
+<h3 id="2-1-UMD-Universal-Module-Definition"><a href="#2-1-UMD-Universal-Module-Definition" class="headerlink" title="2.1 UMD(Universal Module Definition)"></a>2.1 UMD(Universal Module Definition)</h3><p>UMD는 동시에 최대 세가지-AMD, CJS, 글로벌 변수 모듈 형식을 모두 지원하는 방식으로 자바스크립트 모듈을 구현하는 것이다. 아래 코드는 AMD와 CJS를 지원하는 UMD 모듈 <a href="https://github.com/umdjs/umd/blob/master/templates/nodeAdapter.js" target="_blank" rel="external">코드</a>다. </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">define</span>) </span>&#123;</div><div class="line"></div><div class="line">  define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'b'</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">&#125;( <span class="comment">// Help Node out by setting up define.</span></div><div class="line">  <span class="keyword">typeof</span> <span class="built_in">module</span> === <span class="string">'object'</span> &amp;&amp; <span class="built_in">module</span>.exports &amp;&amp; <span class="keyword">typeof</span> define !== <span class="string">'function'</span> ?</div><div class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">factory</span>) </span>&#123; <span class="built_in">module</span>.exports = factory(<span class="built_in">require</span>, exports, <span class="built_in">module</span>); &#125; : define</div><div class="line">));</div></pre></td></tr></table></figure>
+<p>참고</p>
+<ul>
+<li><a href="https://github.com/umdjs/umd" target="_blank" rel="external">UMD (Universal Module Definition) patterns for JavaScript modules</a></li>
+<li><a href="https://github.com/umdjs/umd/issues/35" target="_blank" rel="external">When sniffing for exports, make sure exports is not an HTMLElement</a></li>
+</ul>
+<h2 id="3-이슈"><a href="#3-이슈" class="headerlink" title="3. 이슈"></a>3. 이슈</h2><p>npm 패키지는 단일 플랫폼에서만 사용할 수 있게 제공된다. 다음 코드처럼 <code>package.json</code>의 <code>engines</code> 속성을 사용하면 대상 플랫폼을 지정할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="string">"engines"</span>: &#123; <span class="string">"node"</span>: <span class="string">"&gt;=0.10.3 &lt;0.12"</span>&#125; &#125;</div><div class="line">&#123; <span class="string">"engines"</span>: &#123; <span class="string">"npm"</span>: <span class="string">"~1.0.20"</span>&#125; &#125;</div></pre></td></tr></table></figure>
+<p>하지만 이 속성은 패키지가 여러 플랫폼을 지원해야 하며 각 플랫폼 마다 진입점이 달라야 하는 상황에 전혀 도움을 줄 수 없다. 다음과 같은 상황을 살펴보자. </p>
+<ol>
+<li>브라우저: Babel이 트랜스파일 할 수 있도록 네이티브 버전 (예 : CJS를 통한 ES5)과 ‘최첨단’버전 (예 : ES 모듈을 통한 최신 ECMAScript 버전)을 모두 제공하는 상황.</li>
+<li>Node.js: 서로 다른 몇개의 Node.js 버전에 동일한 모듈을 제공해야 하는 상황.</li>
+<li>브라우저: 어떠한 라이브러리를 오류 없이 오래 사용해야 하는 상황 - 타겟 플랫폼이 새 기능을 지원하지 않는 한 오래 사용해야 함.  <a href="https://github.com/babel/babel-preset-env" target="_blank" rel="external">babel-preset-env</a>같은 편리함이 필요한 상황.</li>
+</ol>
+<p>이런 상황에는 다음과 같은 두가지 측면을 고려해야 한다.</p>
+<ul>
+<li>트랜스파일 할 코드와 네이티브 코드는 분리되어 있다.</li>
+<li>네이티브 코드는 서로 다른 플랫폼에서 실행되어야 한다.</li>
+</ul>
+<p>다음은 첫번째 상황에 대한 해결책이다.</p>
+<h2 id="4-해결책"><a href="#4-해결책" class="headerlink" title="4. 해결책"></a>4. 해결책</h2><p>다음에 나오는 <code>package.json</code>의 속성들은 동일한 코드의 대체 버전을 가리키기 위해 사용할 수 있다. “native code”로 표시한 것은 타겟 플랫폼에서 지원하는 언어의 기능을 의미한다.</p>
+<h3 id="4-1-main-native-feature-CJS"><a href="#4-1-main-native-feature-CJS" class="headerlink" title="4.1 main: native feature, CJS"></a>4.1 <code>main</code>: native feature, CJS</h3><p><code>main</code>은 패키지 내부의 모듈 코드를 가리키는 표준 매커니즘이다. 기본은 <code>index.js</code>이며 원하는 파일로 바꿀 수 있다. 어떤 환경이든 지원한다. </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"the-package"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.0.1"</span>,</div><div class="line">  <span class="string">"main"</span>: <span class="string">"dist/the-package.umd.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-2-module-native-feature-ESM"><a href="#4-2-module-native-feature-ESM" class="headerlink" title="4.2 module: native feature, ESM"></a>4.2 <code>module</code>: native feature, ESM</h3><p>이 속성은 ESM 형식을 지원하며 트리쉐이킹이 가능한 Rollup 같은 도구를 지원한다. 그 외로는 언어의 네이티브 기능으로 지원한다. 즉 <code>module</code>은 또 다른 형태의 모듈에 대한 <code>main</code>이다.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "name": "the-package",</div><div class="line">  "version": "1.0.1",</div><div class="line">  "main": "dist/the-package.umd.js",</div><div class="line">  "module": "dist/the-package.es2015.js</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>참고 </p>
+<ul>
+<li><a href="https://github.com/rollup/rollup/wiki/pkg.module" target="_blank" rel="external">pkg.module</a></li>
+</ul>
+<h3 id="4-3-es2015-ES6-ESM"><a href="#4-3-es2015-ES6-ESM" class="headerlink" title="4.3 es2015: ES6, ESM"></a>4.3 es2015: ES6, ESM</h3><p>Angular4는 패키지를 세가지 형식으로 제공한다.</p>
+<ul>
+<li>UMD: <code>main</code> 프로퍼티를 통해</li>
+<li>ES5/ESM: <code>module</code> 프로퍼티를 통해</li>
+<li>ES6/ESM: <code>es2015</code> 프로퍼티를 통해</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "name": "@angular/core",</div><div class="line">  "main": "./bundles/core.umd.js",</div><div class="line">  "module": "./@angular/core.es5.js",</div><div class="line">  "es2015": "./@angular/core.js",</div><div class="line">  ···</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>나는 이 아이디어가 좋지만 그 이름과 의미는 비교적 빨리 퇴화될 것 같다.</p>
+<p>참고</p>
+<ul>
+<li><a href="https://angularjs.blogspot.de/2017/03/angular-400-now-available.html" target="_blank" rel="external">Angular 4.0.0 Now Available</a></li>
+</ul>
+<h3 id="4-4-jsnext-main-module-선구자"><a href="#4-4-jsnext-main-module-선구자" class="headerlink" title="4.4 jsnext:main: module 선구자"></a>4.4 jsnext:main: <code>module</code> 선구자</h3><p><code>jsnext:main</code> 속성은 더 이상 사용하지 않습니다. <code>module</code> 속성으로 대체합니다. </p>
+<h3 id="4-5-browser-브라우저-전용-코드"><a href="#4-5-browser-브라우저-전용-코드" class="headerlink" title="4.5 browser 브라우저 전용 코드"></a>4.5 browser 브라우저 전용 코드</h3><p><code>browser</code> 속성은 다음과 같은 아이디어다. </p>
+<ul>
+<li><code>main</code> 속성은 Node.js  코드를 제공한다.</li>
+<li><code>borwser</code> 속성은 브라우저 전용 코드를 제공한다.</li>
+</ul>
+<p><code>browser</code>는  <code>main</code>을 대신하는 가장 간단한 방법이다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"main"</span>: <span class="string">"dist/the-package.server.js"</span>,</div><div class="line">  <span class="string">"browser"</span>: <span class="string">"dist/the-package.client.js"</span>,</div><div class="line">  ···</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>고급 설정을 사용해 특정 파일을 대체할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"browser"</span>: &#123;</div><div class="line">  <span class="string">"module-a"</span>: <span class="string">"./shims/module-a.js"</span>,</div><div class="line">  <span class="string">"./server/only.js"</span>: <span class="string">"./shims/client-only.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>참고</p>
+<ul>
+<li><a href="https://github.com/defunctzombie/package-browser-field-spec" target="_blank" rel="external">package-browser-field-spec</a></li>
+</ul>
+<h3 id="4-6-번들러-지원"><a href="#4-6-번들러-지원" class="headerlink" title="4.6 번들러 지원"></a>4.6 번들러 지원</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">main</th>
+<th style="text-align:center">browser</th>
+<th style="text-align:center">module</th>
+<th style="text-align:center">es2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>webpack</strong></td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Rollup</strong></td>
+<td style="text-align:center">(✔)</td>
+<td style="text-align:center">(✔)</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>jspm</strong></td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>webpack을 사용하면 소스 코드의 위치를 지정할 수 있어 <code>es2015</code>를 지원하는 것이 간단하다.</li>
+<li>Rollup은 ESM 형식만 지원한다. CJS 모듈을 처리하려면 플러그인이 필요하다.</li>
+<li>jspm은 자체적인 환경 설정 방법이 따로 있다.</li>
+</ul>
+<h2 id="5-webpack"><a href="#5-webpack" class="headerlink" title="5. webpack"></a>5. webpack</h2><p>webpack의 경우 <code>resolve.mainFields</code> 옵션을 통해 패키지 내의 모듈 코드 위치를 지정할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  ···</div><div class="line">  target: <span class="string">"web"</span>,</div><div class="line">  <span class="comment">// the environment in which the bundle should run</span></div><div class="line">  resolve: &#123;</div><div class="line">    <span class="comment">// options for resolving module requests</span></div><div class="line">    mainFields: ···,</div><div class="line">      ···</div><div class="line">  &#125;,</div><div class="line">  ···</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>이 속성의 기본값은 <code>target</code> 값에 따라 다르다. <code>target</code>이 “web”, “webworker” 혹은 지정하지 않은 경우 기본값은 다음과 같다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mainFields: [<span class="string">"browser"</span>, <span class="string">"module"</span>, <span class="string">"main"</span>]</div></pre></td></tr></table></figure>
+<p><code>target</code>이 “node”를 포함한 다른값이라면 기본값은 다음과 같다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mainFields: [<span class="string">"module"</span>, <span class="string">"main"</span>]</div></pre></td></tr></table></figure>
+<p>참고</p>
+<ul>
+<li><a href="https://webpack.js.org/configuration/resolve/#resolve-mainfields" target="_blank" rel="external"><code>resolve.mainFields</code></a></li>
+</ul>
+<h2 id="6-결론"><a href="#6-결론" class="headerlink" title="6. 결론"></a>6. 결론</h2><p>다양한 플랫폼을 지원하기 위한 먼 여정을 따라가 봤다. 앞으로 “자동 업데이트”를 통해 외부 의존성을 줄이는 것과 babel-preset-env를 통해 번거로움을 없애는 작업을 살펴 보겠다.</p>
+<h2 id="7-참고"><a href="#7-참고" class="headerlink" title="7. 참고"></a>7. 참고</h2><ul>
+<li>Chapter “<a href="http://exploringjs.com/es6/ch_modules.html" target="_blank" rel="external">Modules</a>” in “Exploring ES6”</li>
+<li><a href="http://2ality.com/2017/02/babel-preset-env.html" target="_blank" rel="external">babel-preset-env: a preset that configures Babel for you</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/groups/webfrontend/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/kishu" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 kishu<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
