@@ -1,202 +1,266 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <!-- Head tag -->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="description">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          AMP는 어떻게 웹 페이지의 성능을 높일 수 있나? - kishu.githu.io
+        
+    </title>
 
-    <!--Description-->
-    
-        <meta name="description" content="사용자는 모바일 웹을 사용하면서 모바일 앱과 같은 성능을 기대합니다. 빠른 페이지 로딩과 부드러운 스크롤, 사용자 액션에 즉시 반응하는 인터랙션, 멋진 그래픽 애니메이션 같은 것을 기대합니다. 다행히 모바일 기기의 브라우저 성능이 예전보다 많이 나아졌고, 이를 잘 활용">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="kishu">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="AMP는 어떻게 웹 페이지의 성능을 높일 수 있나?"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="kishu.github.io"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>AMP는 어떻게 웹 페이지의 성능을 높일 수 있나? - kishu.github.io</title>
+    <link rel="canonical" href="https://kishu.github.io/2016/08/17/how-apm-works/">
 
     <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-
-
-    <!-- favicon -->
-    
-	
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 
-<body>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <li>
-                        <a href="/archives">
+                    <div class="post-heading">
+                        <div class="tags">
                             
-                                Archives
-                            
-                        </a>
-                    </li>
+                        </div>
+                        <h1>AMP는 어떻게 웹 페이지의 성능을 높일 수 있나?</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by kishu on
+                            2016-08-17
+                        </span>
+                    </div>
                 
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
 
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>AMP는 어떻게 웹 페이지의 성능을 높일 수 있나?</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        2016-08-17
-                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">kishu.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Tags and categories -->
-           
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>사용자는 모바일 웹을 사용하면서 모바일 앱과 같은 성능을 기대합니다. 빠른 페이지 로딩과 부드러운 스크롤, 사용자 액션에 즉시 반응하는 인터랙션, 멋진 그래픽 애니메이션 같은 것을 기대합니다. 다행히 모바일 기기의 브라우저 성능이 예전보다 많이 나아졌고, 이를 잘 활용한다면 더 쾌적하고 풍부한 사용자 경험을 제공할 수 있습니다.</p>
 <p>그럼에도 불구하고 아직도 많은 사이트가 최적화되지 않은 웹 페이지를 서비스합니다. 이런 서비스는 사용자에게 안 좋은 사용자 경험을 줄 뿐만 아니라 의도하지 않은 트래픽을 발생시키고, 로딩 시간을 낭비하며, 모바일 기기의 배터리를 소모합니다.</p>
 <p><a href="https://www.ampproject.org/" target="_blank" rel="external">AMP(Accelerated Mobile Page)</a>는 웹 페이지를 더 빠르게 렌더링하는 방법입니다. AMP가 제안하는 규칙을 따르고 AMP 내장 컴포넌트와 확장 컴포넌트를 사용한다면 좋은 성능을 보이는 최적화된 웹 페이지를 쉽게 개발할 수 있습니다.</p>
 <p>이 글에서는 AMP의 구성 요소를 살펴보고 AMP가 웹 페이지의 성능을 높일 수 있는 원리를 알아보겠습니다.</p>
 <p><em>이 글에서 설명하는 내용은 AMP HTML 0.1.0이 기준입니다.</em></p>
-<h2 id="AMP-구성-요소"><a href="#AMP-구성-요소" class="headerlink" title="AMP 구성 요소"></a>AMP 구성 요소</h2><p>AMP에는 빠르게 동작하는 웹 페이지를 만들 수 있는 많은 경험과 권장 사항이 담겨 있다. AMP를 사용해 만든 웹 페이지는 웹 페이지긴 하지만 일반적인 웹 페이지와는 조금 다르다. AMP가 웹 페이지의 성능을 향상할 수 있게 따라야 하는 규칙이 있기 때문이다.</p>
+<h2 id="amp-구성-요소">AMP 구성 요소</h2>
+<p>AMP에는 빠르게 동작하는 웹 페이지를 만들 수 있는 많은 경험과 권장 사항이 담겨 있다. AMP를 사용해 만든 웹 페이지는 웹 페이지긴 하지만 일반적인 웹 페이지와는 조금 다르다. AMP가 웹 페이지의 성능을 향상할 수 있게 따라야 하는 규칙이 있기 때문이다.</p>
 <p>AMP의 규칙을 적용한 <a href="https://github.com/ampproject/amphtml" target="_blank" rel="external">AMP HTML</a>과 <a href="https://github.com/ampproject/amphtml/tree/master/src" target="_blank" rel="external">AMP JS</a>를 사용해 만든 웹 페이지는 <a href="https://developers.google.com/amp/cache/" target="_blank" rel="external">Google AMP Cache</a>에 저장된다. 그래서 웹 페이지가 빠르게 로딩될 뿐만 아니라 리소스도 더 빠르게 다운로드된다.</p>
-<h3 id="AMP-HTML"><a href="#AMP-HTML" class="headerlink" title="AMP HTML"></a>AMP HTML</h3><p>AMP HTML은 확장된 형태의 HTML이다. 기본적으로 HTML이지만 몇몇 태그와 속성을 사용할 수 없고, AMP 커스텀 엘리먼트를 사용할 수 있다. AMP 커스텀 엘리먼트는 AMP 컴포넌트를 정의한 HTML 커스텀 엘리먼트다. 예를 들어 AMP HTML은 <code>&lt;img&gt;</code> 태그를 사용하는 대신 AMP 커스텀 엘리먼트인 <code>&lt;amp-img&gt;</code> 태그를 사용한다. 또한 리소스의 크기와 관련이 있는 속성은 반드시 적어야 한다.</p>
+<h3 id="amp-html">AMP HTML</h3>
+<p>AMP HTML은 확장된 형태의 HTML이다. 기본적으로 HTML이지만 몇몇 태그와 속성을 사용할 수 없고, AMP 커스텀 엘리먼트를 사용할 수 있다. AMP 커스텀 엘리먼트는 AMP 컴포넌트를 정의한 HTML 커스텀 엘리먼트다. 예를 들어 AMP HTML은 <code>&lt;img&gt;</code> 태그를 사용하는 대신 AMP 커스텀 엘리먼트인 <code>&lt;amp-img&gt;</code> 태그를 사용한다. 또한 리소스의 크기와 관련이 있는 속성은 반드시 적어야 한다.</p>
 <p>AMP는 이러한 방식으로 HTML 커스텀 엘리먼트를 제어해 로딩할 리소스의 다운로드 시점과 렌더링 시점을 결정하며 렌더링을 위한 레이아웃 계산을 최소로 할 수 있다.</p>
 <p>또한 AMP HTML은 외부 JavaScript와 외부 CSS를 허용하지 않는다. CSS는 오직 AMP HTML 페이지에 삽입한 형태로만 사용할 수 있으며 50KB까지만 허용한다. 요청 수를 최소로 하고 페이지 렌더링을 지연하거나 과도한 스타일 재계산을 방지해 성능을 높이는 것이다.</p>
 <p>만약 직접 개발한 JavaScript나 CSS를 사용하려면 인라인 프레임(iframe) 내부에서 구현하거나, AMP 확장 컴포넌트를 개발해야 한다.</p>
-<h3 id="AMP-JS"><a href="#AMP-JS" class="headerlink" title="AMP JS"></a>AMP JS</h3><p>AMP JS는 성능을 향상하기 위한 원리를 구현한 라이브러리다. AMP의 코어 로직과 HTML 커스텀 엘리먼트로 정의한 AMP 컴포넌트를 포함한다.</p>
+<h3 id="amp-js">AMP JS</h3>
+<p>AMP JS는 성능을 향상하기 위한 원리를 구현한 라이브러리다. AMP의 코어 로직과 HTML 커스텀 엘리먼트로 정의한 AMP 컴포넌트를 포함한다.</p>
 <p>AMP JS는 리소스 로딩을 관리하고 HTML 커스텀 엘리먼트를 제어한다. 또한 외부에서 로딩하는 모든 리소스를 비동기로 처리해 렌더링을 차단(block)하는 모든 요소를 제거한다. 리소스를 로딩하기 전에 웹 페이지에 있는 모든 요소의 레이아웃을 미리 계산하고 느린 CSS의 실행을 막을 수도 있다. 빠른 렌더링을 보장하기 위한 많은 로직이 AMP JS에 있다.</p>
-<h3 id="Google-AMP-Cache"><a href="#Google-AMP-Cache" class="headerlink" title="Google AMP Cache"></a>Google AMP Cache</h3><p>Google AMP Cache는 프락시 기반의 CDN으로, 모든 AMP HTML 페이지를 전송하는 데 사용된다. Google AMP Cache는 AMP HTML 페이지를 가져와 캐시로 만들고 자동으로 웹 페이지의 성능을 개선한다. Google AMP Cache를 사용하면 웹 페이지의 모든 JavaScript 파일과 이미지 파일을 같은 출처(origin)에서 로딩할 수 있으며 HTTP 2.0의 장점을 최대한 살릴 수 있다.</p>
-<h2 id="AMP는-어떻게-웹-페이지의-성능을-높이나"><a href="#AMP는-어떻게-웹-페이지의-성능을-높이나" class="headerlink" title="AMP는 어떻게 웹 페이지의 성능을 높이나"></a>AMP는 어떻게 웹 페이지의 성능을 높이나</h2><p>AMP가 어떻게 웹 페이지의 성능을 향상하는지 원리를 간략하게 살펴보겠다.</p>
-<h3 id="비동기-스크립트만-허용한다"><a href="#비동기-스크립트만-허용한다" class="headerlink" title="비동기 스크립트만 허용한다"></a>비동기 스크립트만 허용한다</h3><p>AMP는 JavaScript가 페이지 렌더링을 차단하는 것을 막기 위해 비동기 JavaScript만 허용한다. 또한 AMP JS를 제외한 어떠한 JavaScript도 허용하지 않는다. 웹 페이지 성능에 영향을 줄 수 있는 부분을 AMP가 제어할 수 없기 때문이다.</p>
+<h3 id="google-amp-cache">Google AMP Cache</h3>
+<p>Google AMP Cache는 프락시 기반의 CDN으로, 모든 AMP HTML 페이지를 전송하는 데 사용된다. Google AMP Cache는 AMP HTML 페이지를 가져와 캐시로 만들고 자동으로 웹 페이지의 성능을 개선한다. Google AMP Cache를 사용하면 웹 페이지의 모든 JavaScript 파일과 이미지 파일을 같은 출처(origin)에서 로딩할 수 있으며 HTTP 2.0의 장점을 최대한 살릴 수 있다.</p>
+<h2 id="amp는-어떻게-웹-페이지의-성능을-높이나">AMP는 어떻게 웹 페이지의 성능을 높이나</h2>
+<p>AMP가 어떻게 웹 페이지의 성능을 향상하는지 원리를 간략하게 살펴보겠다.</p>
+<h3 id="비동기-스크립트만-허용한다">비동기 스크립트만 허용한다</h3>
+<p>AMP는 JavaScript가 페이지 렌더링을 차단하는 것을 막기 위해 비동기 JavaScript만 허용한다. 또한 AMP JS를 제외한 어떠한 JavaScript도 허용하지 않는다. 웹 페이지 성능에 영향을 줄 수 있는 부분을 AMP가 제어할 수 없기 때문이다.</p>
 <p>만일 JavaScript 로직이 필요하면 샌드박스인 인라인 프레임안에서 실행하게 하거나 AMP 컴포넌트를 개발해 실행해야 한다. AMP 컴포넌트는 JavaScript로 작동하지만 웹 페이지 성능을 저해하지 않게 디자인돼 있다.</p>
-<h3 id="모든-정적-리소스의-크기를-미리-지정한다"><a href="#모든-정적-리소스의-크기를-미리-지정한다" class="headerlink" title="모든 정적 리소스의 크기를 미리 지정한다"></a>모든 정적 리소스의 크기를 미리 지정한다</h3><p>AMP 페이지에 추가할 이미지나 광고, 인라인 프레임 같은 리소스는 크기를 반드시 지정해야 한다. 크기를 지정하면 리소스를 다운로드하지 않더라도 리소스의 크ㅍ기와 위치를 계산해 레이아웃을 처리할 수 있다.</p>
+<h3 id="모든-정적-리소스의-크기를-미리-지정한다">모든 정적 리소스의 크기를 미리 지정한다</h3>
+<p>AMP 페이지에 추가할 이미지나 광고, 인라인 프레임 같은 리소스는 크기를 반드시 지정해야 한다. 크기를 지정하면 리소스를 다운로드하지 않더라도 리소스의 크ㅍ기와 위치를 계산해 레이아웃을 처리할 수 있다.</p>
 <p>AMP는 스타일을 다시 계산하지 않고 레이아웃을 처리할 수 있게 최적화돼 있다. 일반적인 웹 페이지는 레이아웃을 처리하기 위해 페이지 요청을 비롯해 리소스 요청을 여러 번 해야 하지만 AMP는 웹 페이지를 받아오기 위한 단 한 번의 HTTP 요청(웹 폰트를 요청하는 것은 제외)만으로 레이아웃을 처리할 수 있다.</p>
-<p><strong><em>참고</em></strong> </p>
-<p>브라우저가 HTML과 JavaScript, CSS를 처리하는 방법을 이해하고 최대한 효율적으로 코드를 실행하는 방법을 알고 싶다면 <a href="https://developers.google.com/web/fundamentals/performance/rendering" target="_blank" rel="external">“Rendering performance”</a>를 참고한다.</p>
-<h3 id="확장-기능이-렌더링을-차단하지-않게-한다"><a href="#확장-기능이-렌더링을-차단하지-않게-한다" class="headerlink" title="확장 기능이 렌더링을 차단하지 않게 한다"></a>확장 기능이 렌더링을 차단하지 않게 한다</h3><p>AMP는 <a href="https://www.ampproject.org/docs/reference/extended/amp-lightbox.html" target="_blank" rel="external">lightbox</a>, <a href="https://www.ampproject.org/docs/reference/extended/amp-instagram.html" target="_blank" rel="external">instagram embed</a>, <a href="https://www.ampproject.org/docs/reference/extended/amp-twitter.html" target="_blank" rel="external">Twitter embed</a> 같은 확장 기능을 지원한다. 이러한 확장 기능은 HTTP를 추가로 요청하지만 페이지 레이아웃과 렌더링을 차단하지 않는다.</p>
-<h3 id="서드파티-JavaScript를-크리티컬-패스에서-제거한다"><a href="#서드파티-JavaScript를-크리티컬-패스에서-제거한다" class="headerlink" title="서드파티 JavaScript를 크리티컬 패스에서 제거한다"></a>서드파티 JavaScript를 크리티컬 패스에서 제거한다</h3><p>AMP는 서드파티 JavaScript 실행을 샌드박스인 인라인 프레임 내부에서만 허용한다. 인라인 프레임 안에 있는 서드파티 JavaScript는 부모 페이지의 실행을 차단하지 않으며 인라인 프레임 내부에서만 스타일 재계산이나 레이아웃 계산이 일어나기 때문에 부모 페이지의 성능에 영향을 주지 않는다.</p>
-<h3 id="CSS는-HTML-내부-스타일시트에서만-허용하고-CSS의-크기를-제한한다"><a href="#CSS는-HTML-내부-스타일시트에서만-허용하고-CSS의-크기를-제한한다" class="headerlink" title="CSS는 HTML 내부 스타일시트에서만 허용하고 CSS의 크기를 제한한다"></a>CSS는 HTML 내부 스타일시트에서만 허용하고 CSS의 크기를 제한한다</h3><p>CSS는 페이지 로딩과 렌더링을 지연한다. 그리고 CSS는 개발하면서 크기가 점점 더 커지는 경향이 있다. 크기가 비대해진 CSS를 해석하고 렌더트리를 만드는 데는 많은 비용이 필요하다. 또한 여러 개로 분리된 CSS는 HTTP 요청을 여러 번 하게 하기 때문에 네트워크 비용을 감수해야 한다.</p>
+<p><strong><em>참고</em></strong></p>
+<p>브라우저가 HTML과 JavaScript, CSS를 처리하는 방법을 이해하고 최대한 효율적으로 코드를 실행하는 방법을 알고 싶다면 <a href="https://developers.google.com/web/fundamentals/performance/rendering" target="_blank" rel="external">&quot;Rendering performance&quot;</a>를 참고한다.</p>
+<h3 id="확장-기능이-렌더링을-차단하지-않게-한다">확장 기능이 렌더링을 차단하지 않게 한다</h3>
+<p>AMP는 <a href="https://www.ampproject.org/docs/reference/extended/amp-lightbox.html" target="_blank" rel="external">lightbox</a>, <a href="https://www.ampproject.org/docs/reference/extended/amp-instagram.html" target="_blank" rel="external">instagram embed</a>, <a href="https://www.ampproject.org/docs/reference/extended/amp-twitter.html" target="_blank" rel="external">Twitter embed</a> 같은 확장 기능을 지원한다. 이러한 확장 기능은 HTTP를 추가로 요청하지만 페이지 레이아웃과 렌더링을 차단하지 않는다.</p>
+<h3 id="서드파티-javascript를-크리티컬-패스에서-제거한다">서드파티 JavaScript를 크리티컬 패스에서 제거한다</h3>
+<p>AMP는 서드파티 JavaScript 실행을 샌드박스인 인라인 프레임 내부에서만 허용한다. 인라인 프레임 안에 있는 서드파티 JavaScript는 부모 페이지의 실행을 차단하지 않으며 인라인 프레임 내부에서만 스타일 재계산이나 레이아웃 계산이 일어나기 때문에 부모 페이지의 성능에 영향을 주지 않는다.</p>
+<h3 id="css는-html-내부-스타일시트에서만-허용하고-css의-크기를-제한한다">CSS는 HTML 내부 스타일시트에서만 허용하고 CSS의 크기를 제한한다</h3>
+<p>CSS는 페이지 로딩과 렌더링을 지연한다. 그리고 CSS는 개발하면서 크기가 점점 더 커지는 경향이 있다. 크기가 비대해진 CSS를 해석하고 렌더트리를 만드는 데는 많은 비용이 필요하다. 또한 여러 개로 분리된 CSS는 HTTP 요청을 여러 번 하게 하기 때문에 네트워크 비용을 감수해야 한다.</p>
 <p>AMP는 HTML 페이지 내부에 <code>&lt;style&gt;</code> 태그로 삽입하는 형태로만 CSS를 사용할 수 있게 한다. 그리고 CSS의 크기를 50KB로 제한한다.</p>
-<h3 id="웹-폰트를-효율적으로-다운로드한다"><a href="#웹-폰트를-효율적으로-다운로드한다" class="headerlink" title="웹 폰트를 효율적으로 다운로드한다"></a>웹 폰트를 효율적으로 다운로드한다</h3><p>웹 폰트는 용량이 매우 크기 때문에 최적화하지 않으면 웹 페이지 성능을 향상할 수 없다. 동기 방식으로 외부 JavaScript와 외부 CSS를 로딩하는 일반적인 웹 페이지에서 웹 폰트를 다운로드할 때 브라우저는 다음 그림과 같이 많은 과정이 끝나길 기다려야 한다.</p>
+<h3 id="웹-폰트를-효율적으로-다운로드한다">웹 폰트를 효율적으로 다운로드한다</h3>
+<p>웹 폰트는 용량이 매우 크기 때문에 최적화하지 않으면 웹 페이지 성능을 향상할 수 없다. 동기 방식으로 외부 JavaScript와 외부 CSS를 로딩하는 일반적인 웹 페이지에서 웹 폰트를 다운로드할 때 브라우저는 다음 그림과 같이 많은 과정이 끝나길 기다려야 한다.</p>
 <p><img src="/images/webfont.png" alt=""></p>
-<p><em>그림 1 웹 폰트 다운로드 과정(원본 출처: <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization</a>)</em></p>
+<p><em>그림 1 웹 폰트 다운로드 과정(원본 출처: https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization)</em></p>
 <p>AMP는 웹 폰트를 다운로드하기 전까지 어떠한 HTTP 요청도 하지 않는다. AMP가 모든 JavaScript를 비동기 방식으로 로딩하며 오직 내부 CSS만 사용할 수 있기 때문에 가능하다. 즉, 웹 폰트를 다운로드할 때 브라우저를 차단하는 어떠한 HTTP 요청도 발생하지 않게 한다.</p>
 <p><strong><em>참고</em></strong></p>
-<p>웹 폰트를 이해하고 웹 폰트를 효율적으로 다운로드하는 방법을 알고 싶다면 <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization" target="_blank" rel="external">“Webfont Optimization”</a>을 참고한다.</p>
-<h3 id="스타일-재계산을-최소화한다"><a href="#스타일-재계산을-최소화한다" class="headerlink" title="스타일 재계산을 최소화한다"></a>스타일 재계산을 최소화한다</h3><p>offsetWidth 같은 CSS 속성을 측정할 때 브라우저는 정확한 값을 계산하기 위해 렌더 큐의 작업을 실행하고 레이아웃을 실행한다.</p>
+<p>웹 폰트를 이해하고 웹 폰트를 효율적으로 다운로드하는 방법을 알고 싶다면 <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization" target="_blank" rel="external">&quot;Webfont Optimization&quot;</a>을 참고한다.</p>
+<h3 id="스타일-재계산을-최소화한다">스타일 재계산을 최소화한다</h3>
+<p>offsetWidth 같은 CSS 속성을 측정할 때 브라우저는 정확한 값을 계산하기 위해 렌더 큐의 작업을 실행하고 레이아웃을 실행한다.</p>
 <p>다음은 box 요소의 offsetWidth 속성값을 측정해 paragraphs[i] 요소의 너비를 변경하는 코드다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">resizeAllParagraphsToMatchBlockWidth</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">// Puts the browser into a read-write-read-write cycle.</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; paragraphs.length; i++) &#123;</div><div class="line">    paragraphs[i].style.width = box.offsetWidth + <span class="string">'px'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">resizeAllParagraphsToMatchBlockWidth</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">// Puts the browser into a read-write-read-write cycle.</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; paragraphs.length; i++) &#123;</div><div class="line">    paragraphs[i].style.width = box.offsetWidth + <span class="string">'px'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>첫 번째 반복에서는 paragraphs[i] 요소의 너비를 box 요소의 너비로 변경하고 렌더 큐는 이 작업을 스케줄링한다. 두 번째 반복부터는 box 요소의 offsetWidth 속성값을 측정할 때 정확한 너비를 계산하기 위해 렌더 큐에 있는 작업을 실행한다. 이때 레이아웃 재계산이 발생한다.</p>
 <p>불필요한 레이아웃 재계산을 방지하려면 다음 코드처럼 측정을 먼저 실행하고 변경을 나중에 처리해야 한다. AMP는 항상 스타일 측정을 먼저 실행하고 변경을 나중에 처리해 프레임당 스타일 재계산을 한 번만 할 수 있게 최대한 보장한다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Read.</span></div><div class="line"><span class="keyword">var</span> width = box.offsetWidth;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">resizeAllParagraphsToMatchBlockWidth</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; paragraphs.length; i++) &#123;</div><div class="line">    <span class="comment">// Now write.</span></div><div class="line">    paragraphs[i].style.width = width + <span class="string">'px'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>더 자세한 내용은 “리플로와 리페인트 최적화”에서 살펴보겠다.</p>
-<h3 id="GPU-가속-애니메이션만-실행한다"><a href="#GPU-가속-애니메이션만-실행한다" class="headerlink" title="GPU 가속 애니메이션만 실행한다"></a>GPU 가속 애니메이션만 실행한다</h3><p>GPU를 사용해 애니메이션을 실행하는 것이 가장 좋다. 그러나 GPU는 레이어를 움직이거나 투명도를 변경하는 작업은 처리할 수 있지만, 페이지 레이아웃은 업데이트하지 못한다. 레이아웃 작업은 브라우저에 넘겨야 하며 브라우저는 레이아웃을 업데이트하는 비용을 감당해야 한다.</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Read.</span></div><div class="line"><span class="keyword">var</span> width = box.offsetWidth;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">resizeAllParagraphsToMatchBlockWidth</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; paragraphs.length; i++) &#123;</div><div class="line">    <span class="comment">// Now write.</span></div><div class="line">    paragraphs[i].style.width = width + <span class="string">'px'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>더 자세한 내용은 &quot;리플로와 리페인트 최적화&quot;에서 살펴보겠다.</p>
+<h3 id="gpu-가속-애니메이션만-실행한다">GPU 가속 애니메이션만 실행한다</h3>
+<p>GPU를 사용해 애니메이션을 실행하는 것이 가장 좋다. 그러나 GPU는 레이어를 움직이거나 투명도를 변경하는 작업은 처리할 수 있지만, 페이지 레이아웃은 업데이트하지 못한다. 레이아웃 작업은 브라우저에 넘겨야 하며 브라우저는 레이아웃을 업데이트하는 비용을 감당해야 한다.</p>
 <p>따라서 CSS 애니메이션은 GPU 가속을 사용하면서도 페이지 레이아웃을 발생하지 않게 해야 한다. AMP는 애니메이션에 transform 속성과 transition 속성, opacity 속성만 사용할 수 있게 해서 페이지 레이아웃이 발생하지 않게 한다.</p>
-<h3 id="리소스-로딩-순서를-제어한다"><a href="#리소스-로딩-순서를-제어한다" class="headerlink" title="리소스 로딩 순서를 제어한다"></a>리소스 로딩 순서를 제어한다</h3><p>AMP는 다운로드할 리소스의 우선순위를 계산해 현재 가장 중요한 리소스를 먼저 다운로드한다. 이미지나 광고는 스크롤하지 않아도 볼 수 있는 영역이나 스크롤하면 바로 볼 수 있는 영역에 있을 때 먼저 다운로드한다.</p>
+<h3 id="리소스-로딩-순서를-제어한다">리소스 로딩 순서를 제어한다</h3>
+<p>AMP는 다운로드할 리소스의 우선순위를 계산해 현재 가장 중요한 리소스를 먼저 다운로드한다. 이미지나 광고는 스크롤하지 않아도 볼 수 있는 영역이나 스크롤하면 바로 볼 수 있는 영역에 있을 때 먼저 다운로드한다.</p>
 <p>또한 AMP는 지금 당장 로딩하지 않아도 되는(lazy load) 리소스를 미리 가져온다(pre-fetch). 리소스 로딩은 최대한 지연하지만 리소스 다운로드는 가능한 한 빨리 한다. 이런 방법으로 로딩하면 페이지 로딩이 매우 빠르게 되며 리소스를 실제로 사용자에게 보일 때만 CPU를 사용한다.</p>
-<h3 id="페이지를-즉시-로딩한다"><a href="#페이지를-즉시-로딩한다" class="headerlink" title="페이지를 즉시 로딩한다"></a>페이지를 즉시 로딩한다</h3><p><a href="https://www.w3.org/TR/resource-hints/#dfn-preconnect" target="_blank" rel="external">preconnect API</a>를 사용해 HTTP 요청을 가능한 빠르게 처리하도록 보장한다. preconnect API로 사용자가 웹 페이지를 이동하기 전에 미리 그 페이지를 렌더링할 수 있다. 웹 페이지가 사용자가 이동하려는 시점에 이미 렌더링됐으므로 웹 페이지를 즉시 로딩할 수 있다.</p>
+<h3 id="페이지를-즉시-로딩한다">페이지를 즉시 로딩한다</h3>
+<p><a href="https://www.w3.org/TR/resource-hints/#dfn-preconnect" target="_blank" rel="external">preconnect API</a>를 사용해 HTTP 요청을 가능한 빠르게 처리하도록 보장한다. preconnect API로 사용자가 웹 페이지를 이동하기 전에 미리 그 페이지를 렌더링할 수 있다. 웹 페이지가 사용자가 이동하려는 시점에 이미 렌더링됐으므로 웹 페이지를 즉시 로딩할 수 있다.</p>
 <p>웹 페이지를 미리 렌더링하는 방법을 모든 웹 콘텐츠에 적용할 수는 있지만 CPU나 대역폭이 낭비될 수 있다. AMP는 이런 낭비를 줄이기 위해 스크롤하지 않아도 볼 수 있는 영역에 있는 리소스만 다운로드하고, 인라인 프레임 같이 CPU 비용이 큰 리소스는 렌더링하지 않는다.</p>
-<h2 id="AMP-커스텀-엘리먼트-처리-과정"><a href="#AMP-커스텀-엘리먼트-처리-과정" class="headerlink" title="AMP 커스텀 엘리먼트 처리 과정"></a>AMP 커스텀 엘리먼트 처리 과정</h2><p>AMP 페이지를 로딩하면 AMP 커스텀 엘리먼트를 초기화한다. 웹 페이지에서 AMP 확장 엘리먼트를 사용하고 있다면 AMP 확장 엘리먼트도 초기화한다.</p>
-<p>다음 코드는 AMP 커스텀 엘리먼트인 <amp-img>를 초기화하는 코드다.</amp-img></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">registerElement</span>(<span class="params">win, name, implementationClass</span>) </span>&#123;  </div><div class="line">  knownElements[name] = implementationClass;</div><div class="line"></div><div class="line">  win.document.registerElement(name, &#123;</div><div class="line">    <span class="attr">prototype</span>: createAmpElementProto(win, name), <span class="comment">// returns ElementProto</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">registerElement(win, <span class="string">'amp-img'</span>, AmpImg);</div></pre></td></tr></table></figure>
+<h2 id="amp-커스텀-엘리먼트-처리-과정">AMP 커스텀 엘리먼트 처리 과정</h2>
+<p>AMP 페이지를 로딩하면 AMP 커스텀 엘리먼트를 초기화한다. 웹 페이지에서 AMP 확장 엘리먼트를 사용하고 있다면 AMP 확장 엘리먼트도 초기화한다.</p>
+<p>다음 코드는 AMP 커스텀 엘리먼트인 &lt;amp-img&gt;를 초기화하는 코드다.</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">registerElement</span>(<span class="params">win, name, implementationClass</span>) </span>&#123;  </div><div class="line">  knownElements[name] = implementationClass;</div><div class="line"></div><div class="line">  win.document.registerElement(name, &#123;</div><div class="line">    <span class="attr">prototype</span>: createAmpElementProto(win, name), <span class="comment">// returns ElementProto</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">registerElement(win, <span class="string">'amp-img'</span>, AmpImg);</div></pre></td></tr></table></figure></p>
 <p>이 코드에서 각 객체의 상속 관계를 그림으로 표현하면 다음과 같다.</p>
 <p><img src="/images/amp-element.png" alt=""></p>
 <p>그림 2 amp-img 엘리먼트와 객체의 상속 관계</p>
-<p>AMP 커스텀 엘리먼트는 document.registerElement() 메서드로 등록된다. 즉, AMP 커스텀 엘리먼트는 기본적으로 <a href="HTML 커스텀 엘리먼트">HTML 커스텀 엘리먼트</a>며, 다음과 같은 콜백 함수로 관리된다.</p>
+<p>AMP 커스텀 엘리먼트는 document.registerElement() 메서드로 등록된다. 즉, AMP 커스텀 엘리먼트는 기본적으로 [HTML 커스텀 엘리먼트](HTML 커스텀 엘리먼트)며, 다음과 같은 콜백 함수로 관리된다.</p>
 <ul>
 <li>createCallback() 메서드: 커스텀 엘리먼트를 등록할 때 발생하는 콜백 메서드</li>
 <li>attachedCallback() 메서드: 커스텀 엘리먼트를 DOM에 추가할 때 발생하는 콜백 메서드</li>
@@ -212,14 +276,19 @@
 <li>documentInactiveCallback() 메서드: 문서를 언로드하기 전 상태가 바뀌면 발생하는 콜백 메서드. 이 메서드에서 리소스를 해제한다.</li>
 <li>createdCallback() 메서드가 발생하기 전에 커스텀 엘리먼트의 생성자가 가장 먼저 실행되며 생성자에서는 AMP 레이아웃 규칙에 따라 엘리먼트를 렌더링할 공간을 미리 확보한다. 리소스를 다운로드하지 않더라도 레이아웃을 처리할 수 있다.</li>
 </ul>
-<h2 id="상태-관리"><a href="#상태-관리" class="headerlink" title="상태 관리"></a>상태 관리</h2><p>AMP는 리소스의 상태를 관리한다. 리소스의 상태가 변경되면 실행할 작업을 찾고(discoverWork) 우선순위를 계산해 작업을 스케줄링한 후 실행(work)한다. AMP가 어떻게 상태를 관리하고 작업을 스케줄링하는지 살펴보겠다.</p>
-<h3 id="FSM"><a href="#FSM" class="headerlink" title="FSM"></a>FSM</h3><p>AMP는 <a href="http://d2.naver.com/helloworld/(https://ko.wikipedia.org/wiki/%EC%9C%A0%ED%95%9C_%EC%83%81%ED%83%9C_%EA%B8%B%EA%B3%84" target="_blank" rel="external">FSM(finite-state machine, 유한 상태 기계)</a>)으로 리소스의 상태를 관리하며 상태가 변경되면 조건에 맞는 핸들러를 실행한다.</p>
+<h2 id="상태-관리">상태 관리</h2>
+<p>AMP는 리소스의 상태를 관리한다. 리소스의 상태가 변경되면 실행할 작업을 찾고(discoverWork) 우선순위를 계산해 작업을 스케줄링한 후 실행(work)한다. AMP가 어떻게 상태를 관리하고 작업을 스케줄링하는지 살펴보겠다.</p>
+<h3 id="fsm">FSM</h3>
+<p>AMP는 <a href="http://d2.naver.com/helloworld/(https://ko.wikipedia.org/wiki/%EC%9C%A0%ED%95%9C_%EC%83%81%ED%83%9C_%EA%B8%25B%EA%B3%84)" target="_blank" rel="external">FSM(finite-state machine, 유한 상태 기계)</a>으로 리소스의 상태를 관리하며 상태가 변경되면 조건에 맞는 핸들러를 실행한다.</p>
 <p>다음 코드는 visibilityState 속성의 상태 변경에 따라 실행할 핸들러를 FSM에 등록하는 코드 중 일부다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// vsm is Finite State Machine</span></div><div class="line">...</div><div class="line">vsm.addTransition(prerender, visible, doPass);  </div><div class="line">vsm.addTransition(visible, inactive, unload);  </div><div class="line">vsm.addTransition(hidden, paused, pause);  </div><div class="line">vsm.addTransition(paused, visible, resume);  </div><div class="line">...</div></pre></td></tr></table></figure>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// vsm is Finite State Machine</span></div><div class="line">...</div><div class="line">vsm.addTransition(prerender, visible, doPass);  </div><div class="line">vsm.addTransition(visible, inactive, unload);  </div><div class="line">vsm.addTransition(hidden, paused, pause);  </div><div class="line">vsm.addTransition(paused, visible, resume);  </div><div class="line">...</div></pre></td></tr></table></figure></p>
 <p>예를 들어 <code>visibilityState</code> 속성의 상태가 prerender에서 visible로 바뀌면 doPass 핸들러를 실행하도록 등록한다. AMP의 <code>visibilityState</code> 속성 변화와 그에 따라 실행할 핸들러를 다이어그램으로 표현하면 다음과 같다. 매우 복잡해 보이지만 상태 변화에 따른 핸들러는 doPass, paused, resume, unload 뿐이다.</p>
-<p><img src="/images/amp-fsm.png" alt=""><br>그림 3 visibilityState 속성 변화에 따른 핸들러</p>
-<h3 id="doPass-핸들러"><a href="#doPass-핸들러" class="headerlink" title="doPass 핸들러"></a>doPass 핸들러</h3><p>상태 변화 핸들러의 핵심 로직이 담겨 있는 doPass핸들러는 실행 작업을 스케줄링하는 discoverWork 단계와 스케줄링된 작업의 우선순위를 계산하고 우선순위대로 작업을 실행하는 work 단계로 나누어진다.</p>
-<p><img src="/images/amp-dopass.png" alt=""><br>그림 4 doPass핸들러의 실행 단계</p>
+<p><img src="/images/amp-fsm.png" alt="">		
+그림 3 visibilityState 속성 변화에 따른 핸들러</p>
+<h3 id="dopass-핸들러">doPass 핸들러</h3>
+<p>상태 변화 핸들러의 핵심 로직이 담겨 있는 doPass핸들러는 실행 작업을 스케줄링하는 discoverWork 단계와 스케줄링된 작업의 우선순위를 계산하고 우선순위대로 작업을 실행하는 work 단계로 나누어진다.</p>
+<p><img src="/images/amp-dopass.png" alt="">
+그림 4 doPass핸들러의 실행 단계</p>
 <p>다음은 discoverWork 단계에서 작업을 실행하는 메서드다.</p>
 <ul>
 <li>applySizesAndMediaQuery() 메서드: 리소스에 미디어 속성이 있다면 미디어 쿼리를 적용하고 AMP 사이즈 관련 속성을 파싱한다.</li>
@@ -227,10 +296,12 @@
 <li>scheduleLayoutOrPreload() 메서드: 뷰포트를 확장한 특정 영역(그림 5 참고) 안에 있는 리소스의 레이아웃을 처리하는 작업을 스케줄링한다.</li>
 <li>setInViewport() 메서드: 리소스가 뷰포트 안에 있는지 밖에 있는지를 계산하고 콜백 메서드인 viewportCallback() 메서드를 실행한다.</li>
 </ul>
-<p><img src="/images/amp-viewport.png" alt=""><br>그림 5 뷰포트 확장 영역</p>
+<p><img src="/images/amp-viewport.png" alt="">
+그림 5 뷰포트 확장 영역</p>
 <p>다음은 work 단계에서 작업을 실행하는 메서드다.</p>
 <ul>
-<li>calcTaskScore() 메서드: 스케줄링한 작업의 우선순위를 계산한다. 우선순위는 다음과 같은 기준으로 결정한다. <ul>
+<li>calcTaskScore() 메서드: 스케줄링한 작업의 우선순위를 계산한다. 우선순위는 다음과 같은 기준으로 결정한다.
+<ul>
 <li>어떤 AMP 커스텀 엘리먼트인가?</li>
 <li>어떤 작업인가?</li>
 <li>뷰포트와 얼마나 가까운가?</li>
@@ -239,120 +310,267 @@
 <li>peek() 메서드: 우선순위가 가장 높은 작업을 선택한다.</li>
 <li>startLayout() 메서드: 선택한 작업 대상의 리소스를 LAYOUT_SCHEDULED 상태로 변경하고 레이아웃 처리를 시작한다. 예를 들어 리소스가 amp-img라면 src 속성에 이미지 경로를 지정하는 것으로 레이아웃 처리를 시작할 수 있다.</li>
 </ul>
-<h2 id="작업-및-이벤트-관리"><a href="#작업-및-이벤트-관리" class="headerlink" title="작업 및 이벤트 관리"></a>작업 및 이벤트 관리</h2><p>AMP는 작업을 관리하기 위해 Pass 클래스를 사용한다. Pass 클래스는 작업을 스케줄링하고 중복 실행을 방지한다(single-pass process).</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pass</span> </span>&#123;  </div><div class="line">    <span class="keyword">constructor</span>(handler, opt_defaultDelay) &#123;</div><div class="line">        <span class="keyword">this</span>.handler_;</div><div class="line">        <span class="keyword">this</span>.defaultDelay_;</div><div class="line">        <span class="keyword">this</span>.scheduled_;</div><div class="line">        <span class="keyword">this</span>.nextTime;</div><div class="line">        <span class="keyword">this</span>.running_;</div><div class="line">    &#125;</div><div class="line">    isPending();</div><div class="line">    schedule(opt_delay);</div><div class="line">    cancel();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="작업-및-이벤트-관리">작업 및 이벤트 관리</h2>
+<p>AMP는 작업을 관리하기 위해 Pass 클래스를 사용한다. Pass 클래스는 작업을 스케줄링하고 중복 실행을 방지한다(single-pass process).</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pass</span> </span>&#123;  </div><div class="line">    <span class="keyword">constructor</span>(handler, opt_defaultDelay) &#123;</div><div class="line">        <span class="keyword">this</span>.handler_;</div><div class="line">        <span class="keyword">this</span>.defaultDelay_;</div><div class="line">        <span class="keyword">this</span>.scheduled_;</div><div class="line">        <span class="keyword">this</span>.nextTime;</div><div class="line">        <span class="keyword">this</span>.running_;</div><div class="line">    &#125;</div><div class="line">    isPending();</div><div class="line">    schedule(opt_delay);</div><div class="line">    cancel();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>AMP는 <code>visibilityState</code> 속성을 변경하기 위한 작업을 Pass 클래스에서 관리한다. Pass 클래스는 <code>document.onload</code> 이벤트가 발생하면 작업을 스케줄링해 실행한다. 작업을 완료하면 이 작업의 다음 실행 시간을 스케줄링한다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> nextPassDelay = (now - <span class="keyword">this</span>.exec_.getLastDequeueTime()) * <span class="number">2</span>;  </div><div class="line">nextPassDelay = <span class="built_in">Math</span>.max(<span class="built_in">Math</span>.min(<span class="number">30000</span>, nextPassDelay), <span class="number">5000</span>);</div></pre></td></tr></table></figure>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> nextPassDelay = (now - <span class="keyword">this</span>.exec_.getLastDequeueTime()) * <span class="number">2</span>;  </div><div class="line">nextPassDelay = <span class="built_in">Math</span>.max(<span class="built_in">Math</span>.min(<span class="number">30000</span>, nextPassDelay), <span class="number">5000</span>);</div></pre></td></tr></table></figure></p>
 <p>또한 AMP는 이벤트를 처리하기 위해 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="external">Promise</a> 객체를 많이 활용한다. AmpImg 객체의 레이아웃을 처리하는 과정을 예로 들겠다.</p>
-<p><img src="/images/amp-promise.png" alt=""><br>그림 6 AmpImg 객체의 레이아웃 처리 과정</p>
-<p><code>visibilityState</code> 속성을 변경하면 resource 객체가 <code>startLayout()</code> 메서드의 실행을 시작하고, ElementProto 객체의 <code>layoutCallback()</code> 메서드와 AmpImg 객체의 <code>updatemgSrc()</code> 메서드가 차례로 실행된다. <code>updateImgSrc()</code> 메서드는 이미지 엘리먼트의 src 속성을 업데이트하고 event-helper 객체의 <code>loadPromise()</code> 메서드를 요청한다.<br>loadPromise 객체는 새로운 Promise 객체를 만들고 이미지 엘리먼트의 load 이벤트 핸들러와 error 이벤트 핸들러를 등록한다. 로딩이 성공하면 상태가 ‘resolved’인 Promise 객체를 반환한다. 로딩이 실패하면 상태가 ‘rejected’인 Promise 객체를 반환한다.<br>Promise 객체는 호출 스택을 따라 반환된다. 각 객체는 객체의 관점에서 리소스 로딩의 성공과 실패 작업을 Promise 객체의 then 체인에 추가한다.</p>
-<h2 id="리플로와-리페인트-최적화"><a href="#리플로와-리페인트-최적화" class="headerlink" title="리플로와 리페인트 최적화"></a>리플로와 리페인트 최적화</h2><p>너비와 높이 같이 요소의 기하학적 구조에 영향을 주는 속성을 변경하면, 그 요소의 크기와 위치를 다시 계산해야 한다. 그 뿐만 아니라 요소의 변경에 영향을 받는 다른 요소의 크기와 위치도 다시 계산해야 한다. 이러한 작업을 리플로라 한다. 리플로는 리페인트를 발생하며, 리페인트는 많은 비용을 수반한다. 따라서 가능한 리플로와 리페인트가 적게 일어나게 하는 것이 좋다.</p>
-<p>브라우저는 리플로가 일어날 작업을 렌더 큐에 모았다가 한꺼번에 처리하는 방식으로 리플로를 최적화한다. 예를 들어 요소의 테두리의 두께를 변경하고, 높이를 변경한다면 브라우저는 ‘두께 변경 → 리플로 → 리페인트 → 높이 변경 → 리플로 → 리페인트’와 같이 매번 리플로와 리페인트를 일어나게 하지 않는다. 대신 브라우저는 ‘두께 변경을 렌더 큐에 저장 → 높이 변경을 렌더 큐에 저장 → 렌더 큐 실행 → 리플로 → 리페인트’와 같이 렌더 큐에 작업을 모았다가 한꺼번에 처리해서 리플로와 리페인트가 필요한 경우에만 발생하게 최적화한다.</p>
+<p><img src="/images/amp-promise.png" alt="">
+그림 6 AmpImg 객체의 레이아웃 처리 과정</p>
+<p><code>visibilityState</code> 속성을 변경하면 resource 객체가 <code>startLayout()</code> 메서드의 실행을 시작하고, ElementProto 객체의 <code>layoutCallback()</code> 메서드와 AmpImg 객체의 <code>updatemgSrc()</code> 메서드가 차례로 실행된다. <code>updateImgSrc()</code> 메서드는 이미지 엘리먼트의 src 속성을 업데이트하고 event-helper 객체의 <code>loadPromise()</code> 메서드를 요청한다.
+loadPromise 객체는 새로운 Promise 객체를 만들고 이미지 엘리먼트의 load 이벤트 핸들러와 error 이벤트 핸들러를 등록한다. 로딩이 성공하면 상태가 'resolved'인 Promise 객체를 반환한다. 로딩이 실패하면 상태가 'rejected'인 Promise 객체를 반환한다.
+Promise 객체는 호출 스택을 따라 반환된다. 각 객체는 객체의 관점에서 리소스 로딩의 성공과 실패 작업을 Promise 객체의 then 체인에 추가한다.</p>
+<h2 id="리플로와-리페인트-최적화">리플로와 리페인트 최적화</h2>
+<p>너비와 높이 같이 요소의 기하학적 구조에 영향을 주는 속성을 변경하면, 그 요소의 크기와 위치를 다시 계산해야 한다. 그 뿐만 아니라 요소의 변경에 영향을 받는 다른 요소의 크기와 위치도 다시 계산해야 한다. 이러한 작업을 리플로라 한다. 리플로는 리페인트를 발생하며, 리페인트는 많은 비용을 수반한다. 따라서 가능한 리플로와 리페인트가 적게 일어나게 하는 것이 좋다.</p>
+<p>브라우저는 리플로가 일어날 작업을 렌더 큐에 모았다가 한꺼번에 처리하는 방식으로 리플로를 최적화한다. 예를 들어 요소의 테두리의 두께를 변경하고, 높이를 변경한다면 브라우저는 '두께 변경 → 리플로 → 리페인트 → 높이 변경 → 리플로 → 리페인트'와 같이 매번 리플로와 리페인트를 일어나게 하지 않는다. 대신 브라우저는 '두께 변경을 렌더 큐에 저장 → 높이 변경을 렌더 큐에 저장 → 렌더 큐 실행 → 리플로 → 리페인트'와 같이 렌더 큐에 작업을 모았다가 한꺼번에 처리해서 리플로와 리페인트가 필요한 경우에만 발생하게 최적화한다.</p>
 <p>하지만 요소의 크기나 위치, 스크롤에 관련된 스타일 속성을 요청한다면 브라우저는 렌더 큐에 있는 작업을 즉시 실행해야 한다. 렌더 큐의 작업을 실행해 리플로를 해야 요청한 스타일 속성의 값을 정확하게 계산할 수 있기 때문이다. 따라서 리플로를 발생하는 스타일 속성에 접근할 때는 불필요한 리플로가 일어나지 않게 주의해야 한다.</p>
 <p>다음 예에서는 최악의 경우에 3번의 리플로가 발생할 수 있다. 각각의 요소의 clientHeight 속성을 요청하는 즉시 브라우저는 렌더 큐의 작업을 실행하고 리플로를 해야 요청한 속성값을 정확하게 계산할 수 있기 때문이다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// measure - 리플로 발생</span></div><div class="line"><span class="keyword">var</span> h1 = element1.clientHeight;</div><div class="line"></div><div class="line"><span class="comment">// mutate - 렌더 큐에 저장</span></div><div class="line">element1.style.height = (h1 * <span class="number">2</span>) + <span class="string">'px'</span>;</div><div class="line"></div><div class="line"><span class="comment">// measure - 리플로 발생</span></div><div class="line"><span class="keyword">var</span> h2 = element2.clientHeight;</div><div class="line"></div><div class="line"><span class="comment">// mutate - 렌더 큐에 저장</span></div><div class="line">element2.style.height = (h2 * <span class="number">2</span>) + <span class="string">'px'</span>;</div><div class="line"></div><div class="line"><span class="comment">// measure - 리플로 발생</span></div><div class="line"><span class="keyword">var</span> h3 = element3.clientHeight;</div><div class="line"></div><div class="line"><span class="comment">// mutate - 렌더 큐에 저장</span></div><div class="line">element3.style.height = (h3 * <span class="number">2</span>) + <span class="string">'px'</span>;</div></pre></td></tr></table></figure>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// measure - 리플로 발생</span></div><div class="line"><span class="keyword">var</span> h1 = element1.clientHeight;</div><div class="line"></div><div class="line"><span class="comment">// mutate - 렌더 큐에 저장</span></div><div class="line">element1.style.height = (h1 * <span class="number">2</span>) + <span class="string">'px'</span>;</div><div class="line"></div><div class="line"><span class="comment">// measure - 리플로 발생</span></div><div class="line"><span class="keyword">var</span> h2 = element2.clientHeight;</div><div class="line"></div><div class="line"><span class="comment">// mutate - 렌더 큐에 저장</span></div><div class="line">element2.style.height = (h2 * <span class="number">2</span>) + <span class="string">'px'</span>;</div><div class="line"></div><div class="line"><span class="comment">// measure - 리플로 발생</span></div><div class="line"><span class="keyword">var</span> h3 = element3.clientHeight;</div><div class="line"></div><div class="line"><span class="comment">// mutate - 렌더 큐에 저장</span></div><div class="line">element3.style.height = (h3 * <span class="number">2</span>) + <span class="string">'px'</span>;</div></pre></td></tr></table></figure></p>
 <p>위의 코드를 다음 예처럼 스타일 속성을 요청하는 작업을 먼저 처리하고 변경하는 작업을 나중에 처리한다면 더 효율적으로 리플로를 최적화할 수 있다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// measure</span></div><div class="line"><span class="keyword">var</span> h1 = element1.clientHeight; <span class="comment">// 렌더 큐가 비어 있지 않다면 렌더 큐 실행 -&gt; 리플로  </span></div><div class="line"><span class="keyword">var</span> h2 = element2.clientHeight; <span class="comment">// 렌더 큐 비어 있음  </span></div><div class="line"><span class="keyword">var</span> h3 = element3.clientHeight; <span class="comment">// 렌더 큐 비어 있음</span></div><div class="line"></div><div class="line"><span class="comment">// mutate</span></div><div class="line">element1.style.height = (h1 * <span class="number">2</span>) + <span class="string">'px'</span>; <span class="comment">// 렌더 큐에 저장  </span></div><div class="line">element2.style.height = (h2 * <span class="number">2</span>) + <span class="string">'px'</span>; <span class="comment">// 렌더 큐에 저장  </span></div><div class="line">element3.style.height = (h3 * <span class="number">2</span>) + <span class="string">'px'</span>; <span class="comment">// 렌더 큐에 저장</span></div><div class="line"></div><div class="line"><span class="comment">// Document reflows at end of frame</span></div></pre></td></tr></table></figure>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// measure</span></div><div class="line"><span class="keyword">var</span> h1 = element1.clientHeight; <span class="comment">// 렌더 큐가 비어 있지 않다면 렌더 큐 실행 -&gt; 리플로  </span></div><div class="line"><span class="keyword">var</span> h2 = element2.clientHeight; <span class="comment">// 렌더 큐 비어 있음  </span></div><div class="line"><span class="keyword">var</span> h3 = element3.clientHeight; <span class="comment">// 렌더 큐 비어 있음</span></div><div class="line"></div><div class="line"><span class="comment">// mutate</span></div><div class="line">element1.style.height = (h1 * <span class="number">2</span>) + <span class="string">'px'</span>; <span class="comment">// 렌더 큐에 저장  </span></div><div class="line">element2.style.height = (h2 * <span class="number">2</span>) + <span class="string">'px'</span>; <span class="comment">// 렌더 큐에 저장  </span></div><div class="line">element3.style.height = (h3 * <span class="number">2</span>) + <span class="string">'px'</span>; <span class="comment">// 렌더 큐에 저장</span></div><div class="line"></div><div class="line"><span class="comment">// Document reflows at end of frame</span></div></pre></td></tr></table></figure></p>
 <p><strong><em>참고</em></strong></p>
-<p>레이아웃 처리를 복잡하게 하는 요소를 없애 웹 페이지 성능을 높이는 방법을 알고 싶다면 다음 자료를 참고한다. </p>
+<p>레이아웃 처리를 복잡하게 하는 요소를 없애 웹 페이지 성능을 높이는 방법을 알고 싶다면 다음 자료를 참고한다.</p>
 <ul>
-<li>“Preventing ‘layout thrashing’”, <a href="http://wilsonpage.co.uk/preventing-layout-thrashing" target="_blank" rel="external">http://wilsonpage.co.uk/preventing-layout-thrashing</a> </li>
-<li>“Avoid Large Complex Layouts And Thrashing”, <a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing" target="_blank" rel="external">https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing</a> </li>
-<li>“fastdom”, <a href="https://github.com/wilsonpage/fastdom" target="_blank" rel="external">https://github.com/wilsonpage/fastdom</a></li>
+<li>&quot;Preventing 'layout thrashing'&quot;, http://wilsonpage.co.uk/preventing-layout-thrashing</li>
+<li>&quot;Avoid Large Complex Layouts And Thrashing&quot;, https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing</li>
+<li>&quot;fastdom&quot;, https://github.com/wilsonpage/fastdom</li>
 </ul>
 <p>AMP는 Vsync 클래스로 리플로를 최적화한다. Vsync 클래스는 스타일 속성을 측정하는 measure() 메서드와 스타일 속성을 변경하는 mutate() 메서드를 가지고 있다. 이 메서드로 등록한 측정 작업과 변경 작업을 작업 큐에 저장한다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vsync</span> </span>&#123;  </div><div class="line">    ...</div><div class="line">    mutate(mutator) &#123;</div><div class="line">        <span class="keyword">this</span>.run(&#123;</div><div class="line">            <span class="attr">measure</span>: <span class="literal">undefined</span>,</div><div class="line">            <span class="attr">mutate</span>: mutator,</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    measure(measurer) &#123;</div><div class="line">        <span class="keyword">this</span>.run(&#123;</div><div class="line">            <span class="attr">measure</span>: measurer,</div><div class="line">            <span class="attr">mutate</span>: <span class="literal">undefined</span>,</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    run(task, opt_state) &#123;</div><div class="line">        <span class="keyword">this</span>.tasks_.push(task);</div><div class="line">        <span class="keyword">this</span>.states_.push(opt_state);</div><div class="line">        <span class="keyword">this</span>.schedule_();</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vsync</span> </span>&#123;  </div><div class="line">    ...</div><div class="line">    mutate(mutator) &#123;</div><div class="line">        <span class="keyword">this</span>.run(&#123;</div><div class="line">            <span class="attr">measure</span>: <span class="literal">undefined</span>,</div><div class="line">            <span class="attr">mutate</span>: mutator,</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    measure(measurer) &#123;</div><div class="line">        <span class="keyword">this</span>.run(&#123;</div><div class="line">            <span class="attr">measure</span>: measurer,</div><div class="line">            <span class="attr">mutate</span>: <span class="literal">undefined</span>,</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    run(task, opt_state) &#123;</div><div class="line">        <span class="keyword">this</span>.tasks_.push(task);</div><div class="line">        <span class="keyword">this</span>.states_.push(opt_state);</div><div class="line">        <span class="keyword">this</span>.schedule_();</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>작업 큐에 저장된 변경 작업과 측정 작업은 requestAnimationFrame() 메서드에서 실행된다. requestAnimationFrame() 메서드는 작업 큐에서 작업을 꺼내 측정 작업을 먼저 실행하고 변경 작업을 그 다음에 실행한다. 이렇게 하면 한 프레임에 한 번의 리플로만 일어나게 보장할 수 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for (let i = 0; i &lt; tasks.length; i++) &#123;  </div><div class="line">    if (tasks[i].measure) &#123;</div><div class="line">        tasks[i].measure(states[i]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">for (let i = 0; i &lt; tasks.length; i++) &#123;  </div><div class="line">    if (tasks[i].mutate) &#123;</div><div class="line">        tasks[i].mutate(states[i]);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/images/amp-vsync.png" alt=""><br>그림 7 Vsync 클래스의 리플로 최적화 방법</p>
-<h2 id="마치며"><a href="#마치며" class="headerlink" title="마치며"></a>마치며</h2><p>AMP는 웹 페이지의 성능을 나쁘게 하는 요소를 최대한 제약한다. 그리고 JavaScript로 렌더링을 세밀하게 제어한다. 이렇게 함으로써 웹 페이지 성능을 최대한 보장한다. 만약 정적인 콘텐츠가 대부분이고 carousel이나 lightbox 같이 비교적 간단한 UI 컴포넌트를 사용하는 페이지라면 AMP로 쉽게 웹 페이지를 개발할 수 있으며 아주 좋은 성능도 보장받을 수 있다. 하지만 좀 더 동적인 웹 페이지를 AMP로 개발할 때는 AMP에서 제공하는 기본 커스텀 엘리먼트와 확장 엘리먼트만으로는 한계가 있다. 이런 때는 요구 사항에 맞는 AMP 확장 엘리먼트를 직접 개발해 사용해야 한다.</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for (let i = 0; i &lt; tasks.length; i++) &#123;  </div><div class="line">    if (tasks[i].measure) &#123;</div><div class="line">        tasks[i].measure(states[i]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">for (let i = 0; i &lt; tasks.length; i++) &#123;  </div><div class="line">    if (tasks[i].mutate) &#123;</div><div class="line">        tasks[i].mutate(states[i]);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/images/amp-vsync.png" alt="">
+그림 7 Vsync 클래스의 리플로 최적화 방법</p>
+<h2 id="마치며">마치며</h2>
+<p>AMP는 웹 페이지의 성능을 나쁘게 하는 요소를 최대한 제약한다. 그리고 JavaScript로 렌더링을 세밀하게 제어한다. 이렇게 함으로써 웹 페이지 성능을 최대한 보장한다. 만약 정적인 콘텐츠가 대부분이고 carousel이나 lightbox 같이 비교적 간단한 UI 컴포넌트를 사용하는 페이지라면 AMP로 쉽게 웹 페이지를 개발할 수 있으며 아주 좋은 성능도 보장받을 수 있다. 하지만 좀 더 동적인 웹 페이지를 AMP로 개발할 때는 AMP에서 제공하는 기본 커스텀 엘리먼트와 확장 엘리먼트만으로는 한계가 있다. 이런 때는 요구 사항에 맞는 AMP 확장 엘리먼트를 직접 개발해 사용해야 한다.</p>
 <p>AMP를 사용한다면 웹 페이지의 성능을 보장할 수 있으며, 개발자는 오로지 콘텐츠에만 집중할 수 있다. 결국 품질이 좋은 콘텐츠가 많이 생산되고 유통될 것이며 웹이 더 활성화될 것이다. 이것이 바로 AMP의 주요 지향점이다.</p>
 <p>이 문서에서 설명한 AMP의 핵심 구현 원리는 AMP 페이지를 더 효율적으로 만드는 데 도움이 될 될 것이다. AMP 페이지를 개발하지 않더라도 AMP에서 페이지 성능을 높이기 위해 사용한 기술과 구현 원리를 살펴본다면 웹 페이지의 성능을 높일 수 있는 아이디어를 얻을 수 있을 것이라 기대한다.</p>
 <p><strong><em>참고</em></strong></p>
-<p>AMP에 관해 더 자세한 내용을 알고 싶다면 다음 자료를 참고한다. </p>
+<p>AMP에 관해 더 자세한 내용을 알고 싶다면 다음 자료를 참고한다.</p>
 <ul>
-<li>AMP HTML 프로젝트, <a href="https://github.com/ampproject/amphtml" target="_blank" rel="external">https://github.com/ampproject/amphtml</a> </li>
-<li>“What Is AMP?”, <a href="https://www.ampproject.org/docs/get_started/about-amp.html" target="_blank" rel="external">https://www.ampproject.org/docs/get_started/about-amp.html</a> </li>
-<li>“How AMP Speeds Up Performance”, <a href="https://www.ampproject.org/docs/get_started/technical_overview.html" target="_blank" rel="external">https://www.ampproject.org/docs/get_started/technical_overview.html</a> </li>
-<li>“AMP’s Anatomy”, <a href="https://docs.google.com/presentation/d/1E7CAKFUhYRsZv9CghrW1cbZXnB-aMVkoUrmCnO1JTRs/preview?slide=id.gcc30f7b32_0_193" target="_blank" rel="external">https://docs.google.com/presentation/d/1E7CAKFUhYRsZv9CghrW1cbZXnB-aMVkoUrmCnO1JTRs/preview?slide=id.gcc30f7b32_0_193</a></li>
+<li>AMP HTML 프로젝트, https://github.com/ampproject/amphtml</li>
+<li>&quot;What Is AMP?&quot;, https://www.ampproject.org/docs/get_started/about-amp.html</li>
+<li>&quot;How AMP Speeds Up Performance&quot;, https://www.ampproject.org/docs/get_started/technical_overview.html</li>
+<li>&quot;AMP's Anatomy&quot;, https://docs.google.com/presentation/d/1E7CAKFUhYRsZv9CghrW1cbZXnB-aMVkoUrmCnO1JTRs/preview?slide=id.gcc30f7b32_0_193</li>
 </ul>
 
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/01/10/cyclic-dependencies-of-modules/" data-toggle="tooltip" data-placement="top" title="모듈의 순환 의존(cyclic dependencies)">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/07/08/browse-ebay-with-style-and-speed/" data-toggle="tooltip" data-placement="top" title="Browse eBay with Style and Speed">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
 
                 
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
             </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
 
-    <!-- Footer -->
-    <hr />
 
-<!-- Footer -->
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    
+                
+                
+                
 
-                    
-                        <li>
-                            <a href="https://www.facebook.com/groups/webfrontend/" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
 
-                    
-                        <li>
-                            <a href="https://github.com/kishu" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/rlaxogns">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
-                    
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kishu">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
-                    
+                
 
-                    
                 </ul>
-                <p class="copyright text-muted">&copy; 2017 kishu<br></p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
-    
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
 
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kishu.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<!--<img src="https://kishu.github.io/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 

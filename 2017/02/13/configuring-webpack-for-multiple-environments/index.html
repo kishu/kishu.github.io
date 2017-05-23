@@ -1,274 +1,466 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <!-- Head tag -->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="description">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          여러 환경을 위한 webpack 설정 구성하기 - kishu.githu.io
+        
+    </title>
 
-    <!--Description-->
-    
-        <meta name="description" content="시나리오예를 들어 다음과 같이 여러 환경으로 번들링해야 할 경우
-
-컴포넌트 소스만 번들링해야 할 경우(기본). standalone 이라 하자.
-컴포넌트 소스가 의존하는 모듈을 함께 패키징해 번들링해야 할 경우. packaged라 하자
-환경 별로 webpack 설정파일을">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="kishu">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="여러 환경을 위한 webpack 설정 구성하기"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="kishu.github.io"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>여러 환경을 위한 webpack 설정 구성하기 - kishu.github.io</title>
+    <link rel="canonical" href="https://kishu.github.io/2017/02/13/configuring-webpack-for-multiple-environments/">
 
     <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-
-
-    <!-- favicon -->
-    
-	
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 
-<body>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <li>
-                        <a href="/archives">
+                    <div class="post-heading">
+                        <div class="tags">
                             
-                                Archives
-                            
-                        </a>
-                    </li>
+                        </div>
+                        <h1>여러 환경을 위한 webpack 설정 구성하기</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by kishu on
+                            2017-02-13
+                        </span>
+                    </div>
                 
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
 
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>여러 환경을 위한 webpack 설정 구성하기</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        2017-02-13
-                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">kishu.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Tags and categories -->
-           
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="시나리오"><a href="#시나리오" class="headerlink" title="시나리오"></a>시나리오</h2><p>예를 들어 다음과 같이 여러 환경으로 번들링해야 할 경우</p>
+                <h2 id="시나리오">시나리오</h2>
+<p>예를 들어 다음과 같이 여러 환경으로 번들링해야 할 경우</p>
 <ul>
 <li>컴포넌트 소스만 번들링해야 할 경우(기본). standalone 이라 하자.</li>
 <li>컴포넌트 소스가 의존하는 모듈을 함께 패키징해 번들링해야 할 경우. packaged라 하자</li>
 <li>환경 별로 webpack 설정파일을 분리하고 webpack 실행시 환경에 맞게 merge해서 사용해 보자</li>
 </ul>
-<h2 id="webpack-merge-설치"><a href="#webpack-merge-설치" class="headerlink" title="webpack-merge 설치"></a>webpack-merge 설치</h2><p><a href="https://github.com/survivejs/webpack-merge" target="_blank" rel="external">webpack-merge</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd path/to/workspace</div><div class="line">$ npm install webpack-merge --save-dev</div></pre></td></tr></table></figure>
-<h2 id="webpack-설정-파일-구성"><a href="#webpack-설정-파일-구성" class="headerlink" title="webpack 설정 파일 구성"></a>webpack 설정 파일 구성</h2><p>webpack 설정 파일을 다음과 같이 분리한다.</p>
+<h2 id="webpack-merge-설치">webpack-merge 설치</h2>
+<p><a href="https://github.com/survivejs/webpack-merge" target="_blank" rel="external">webpack-merge</a></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd path/to/workspace</div><div class="line">$ npm install webpack-merge --save-dev</div></pre></td></tr></table></figure></p>
+<h2 id="webpack-설정-파일-구성">webpack 설정 파일 구성</h2>
+<p>webpack 설정 파일을 다음과 같이 분리한다.</p>
 <table>
 <thead>
 <tr>
 <th>파일</th>
-<th>&nbsp;&nbsp;설명</th>
+<th>  설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>./webpack.config.js</td>
-<td>&nbsp;&nbsp;모든 설정에서 공유할 기본 설정</td>
+<td>  모든 설정에서 공유할 기본 설정</td>
 </tr>
 <tr>
 <td>./config/webpack.config.standalone.js</td>
-<td>&nbsp;&nbsp;standalone 번들링에 사용할 설정</td>
+<td>  standalone 번들링에 사용할 설정</td>
 </tr>
 <tr>
 <td>./config/webpack.packaged.js</td>
-<td>&nbsp;&nbsp;packaged 번들링에 사용할 설정</td>
+<td>  packaged 번들링에 사용할 설정</td>
 </tr>
 </tbody>
 </table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">somecomponent</div><div class="line">  ├─ ..</div><div class="line">  ├─ config/</div><div class="line">  │   ├─ ..</div><div class="line">  │   ├─ webpack.config.packaged.js</div><div class="line">  │   └─ webpack.config.standalone.js</div><div class="line">  ├─ package.js</div><div class="line">  └─ webpack.config.js</div></pre></td></tr></table></figure>
-<h3 id="webpack-설정-파일-내용"><a href="#webpack-설정-파일-내용" class="headerlink" title="webpack 설정 파일 내용"></a>webpack 설정 파일 내용</h3><h4 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">  <span class="comment">// 기본 설정</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">env</span>) </span>&#123;</div><div class="line">  env = env || <span class="string">"standalone"</span>;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">"./config/webpack.config."</span> + env + <span class="string">".js"</span>)(env, config);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="config-webpack-standalone-js"><a href="#config-webpack-standalone-js" class="headerlink" title="config/webpack.standalone.js"></a>config/webpack.standalone.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpackMerge = <span class="built_in">require</span>(<span class="string">"webpack-merge"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">  <span class="comment">// standalone 번들링 설정</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">env, defaultConfig</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> webpackMerge(defaultConfig, config);    <span class="comment">// ../webpack.config.js와 merge</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="config-webpack-packaged-js"><a href="#config-webpack-packaged-js" class="headerlink" title="config/webpack.packaged.js"></a>config/webpack.packaged.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpackMerge = <span class="built_in">require</span>(<span class="string">"webpack-merge"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">  <span class="comment">// packaged 번들링 설정</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">env, defaultConfig</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> webpackMerge(defaultConfig, config);    <span class="comment">// ../webpack.config.js와 merge</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="npm-script-구성"><a href="#npm-script-구성" class="headerlink" title="npm script 구성"></a>npm script 구성</h3><p>환경별 webpack 실행을 npm script로 등록한다.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// package.json</div><div class="line">...</div><div class="line">"scripts": &#123;</div><div class="line">  ...</div><div class="line">  "build": "webpack --env=standalone",</div><div class="line">  "build:pkgd": "webpack --env=packaged"</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">somecomponent</div><div class="line">  ├─ ..</div><div class="line">  ├─ config/</div><div class="line">  │   ├─ ..</div><div class="line">  │   ├─ webpack.config.packaged.js</div><div class="line">  │   └─ webpack.config.standalone.js</div><div class="line">  ├─ package.js</div><div class="line">  └─ webpack.config.js</div></pre></td></tr></table></figure></p>
+<h3 id="webpack-설정-파일-내용">webpack 설정 파일 내용</h3>
+<h4 id="webpackconfigjs">webpack.config.js</h4>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">  <span class="comment">// 기본 설정</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">env</span>) </span>&#123;</div><div class="line">  env = env || <span class="string">"standalone"</span>;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">"./config/webpack.config."</span> + env + <span class="string">".js"</span>)(env, config);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="configwebpackstandalonejs">config/webpack.standalone.js</h3>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpackMerge = <span class="built_in">require</span>(<span class="string">"webpack-merge"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">  <span class="comment">// standalone 번들링 설정</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">env, defaultConfig</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> webpackMerge(defaultConfig, config);    <span class="comment">// ../webpack.config.js와 merge</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="configwebpackpackagedjs">config/webpack.packaged.js</h3>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpackMerge = <span class="built_in">require</span>(<span class="string">"webpack-merge"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">  <span class="comment">// packaged 번들링 설정</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">env, defaultConfig</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> webpackMerge(defaultConfig, config);    <span class="comment">// ../webpack.config.js와 merge</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="npm-script-구성">npm script 구성</h3>
+<p>환경별 webpack 실행을 npm script로 등록한다.</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// package.json</div><div class="line">...</div><div class="line">"scripts": &#123;</div><div class="line">  ...</div><div class="line">  "build": "webpack --env=standalone",</div><div class="line">  "build:pkgd": "webpack --env=packaged"</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <p><strong>참고</strong></p>
 <ul>
 <li><a href="https://webpack.js.org/guides/production-build/#the-manual-way-configuring-webpack-for-multiple-environments" target="_blank" rel="external">Configuring webpack for multiple environments</a></li>
 <li><a href="https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.tlezrqivk" target="_blank" rel="external">Webpack — The Confusing Parts</a></li>
 </ul>
 
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/02/14/webpack-umd/" data-toggle="tooltip" data-placement="top" title="웹팩 모듈을 라이브러리로 만들기">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/10/cyclic-dependencies-of-modules/" data-toggle="tooltip" data-placement="top" title="모듈의 순환 의존(cyclic dependencies)">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
 
                 
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
             </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
 
-    <!-- Footer -->
-    <hr />
 
-<!-- Footer -->
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    
+                
+                
+                
 
-                    
-                        <li>
-                            <a href="https://www.facebook.com/groups/webfrontend/" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
 
-                    
-                        <li>
-                            <a href="https://github.com/kishu" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/rlaxogns">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
-                    
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kishu">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
-                    
+                
 
-                    
                 </ul>
-                <p class="copyright text-muted">&copy; 2017 kishu<br></p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
-    
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
 
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kishu.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<!--<img src="https://kishu.github.io/img/icon_wechat.png" width="0" height="0" />-->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 
