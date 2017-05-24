@@ -3,12 +3,17 @@
 
     <sitemap>
         <loc>https://kishu.github.io/post-sitemap.xml</loc>
-        <lastmod>2017-05-23T06:10:10.000Z</lastmod>
+        <lastmod>2017-05-24T02:10:48.000Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>https://kishu.github.io/page-sitemap.xml</loc>
         <lastmod>2017-05-23T06:40:57.000Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://kishu.github.io/tag-sitemap.xml</loc>
+        <lastmod>2017-05-24T02:10:48.000Z</lastmod>
     </sitemap>
 
 </sitemapindex>
