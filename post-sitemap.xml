@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://kishu.github.io/2017/08/07/garbage-collection-in-v8/</loc>
+        <lastmod>2017-08-07T09:04:33.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://kishu.github.io/2017/05/23/setting-up-multi-platform-npm-packages/</loc>
         <lastmod>2017-05-24T02:10:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
